@@ -44,3 +44,22 @@ def build_baseline_pipeline(X: pd.DataFrame, config: dict[str, Any]) -> Pipeline
         n_jobs=int(baseline["n_jobs"]),
     )
     return Pipeline([("preprocess", build_preprocessor(X)), ("model", model)])
+
+
+def build_hpo_pipeline(
+    X: pd.DataFrame,
+    config: dict[str, Any],
+    params: dict[str, Any],
+) -> Pipeline:
+    """Build the same RF family/preprocessing with trial-controlled parameters."""
+    baseline = config["baseline"]
+    model = RandomForestClassifier(
+        n_estimators=int(params["n_estimators"]),
+        max_depth=int(params["max_depth"]),
+        min_samples_leaf=int(params["min_samples_leaf"]),
+        max_features=float(params["max_features"]),
+        class_weight=params["class_weight"],
+        random_state=int(baseline["random_state"]),
+        n_jobs=int(baseline["n_jobs"]),
+    )
+    return Pipeline([("preprocess", build_preprocessor(X)), ("model", model)])

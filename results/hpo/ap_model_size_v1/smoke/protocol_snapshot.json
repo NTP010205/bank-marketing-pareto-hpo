@@ -1,0 +1,154 @@
+{
+  "protocol_config": {
+    "protocol_version": "ap_model_size_v1",
+    "status": "approved_for_smoke_only",
+    "approval_date": "2026-10-20",
+    "base_config": "configs/experiment.yaml",
+    "data_path": "data/raw/bank-full.csv",
+    "data_audit_reference": "results/data_audit.json",
+    "split_indices_reference": "results/baseline/split_indices.npz",
+    "cv_folds_reference": "results/hpo/cv_folds_seed42.npz",
+    "output_root": "results/hpo/ap_model_size_v1",
+    "seed": 42,
+    "samplers": [
+      "random",
+      "tpe"
+    ],
+    "directions": [
+      "maximize",
+      "minimize"
+    ],
+    "objective_names": [
+      "average_precision_cv_mean",
+      "model_size_max_mb"
+    ],
+    "aggregation": {
+      "average_precision": "mean_of_three_validation_folds",
+      "model_size": "max_of_three_fold_serialized_pipeline_sizes"
+    },
+    "constraints": {
+      "model_size_cap_mb_decimal": 50.0,
+      "feasibility_rule": "g_le_zero",
+      "latency_used": false
+    },
+    "serialization": {
+      "format": "joblib",
+      "compression": 3,
+      "include_complete_pipeline": true,
+      "repeat_serialization_check_in_smoke": true
+    },
+    "smoke": {
+      "trials_per_sampler": 3,
+      "maximum_trials_per_sampler": 3,
+      "storage_subdir": "smoke",
+      "study_version": "ap_model_size_v1_smoke",
+      "approved": true
+    },
+    "full": {
+      "trials_per_sampler": 40,
+      "storage_subdir": "official",
+      "study_version": "ap_model_size_v1_official",
+      "full_run_blocked": true,
+      "requires_explicit_post_smoke_approval": true
+    },
+    "tpe": {
+      "n_startup_trials": 10
+    },
+    "execution": {
+      "optuna_n_jobs": 1,
+      "estimator_n_jobs": 1,
+      "thread_limit": 1,
+      "keep_trial_models": false
+    },
+    "integrity_paths": [
+      "results/baseline",
+      "results/hpo/pilot",
+      "results/hpo/latency_calibration_v1",
+      "results/hpo/latency_calibration_v2"
+    ]
+  },
+  "base_search_space": {
+    "n_estimators": {
+      "type": "int",
+      "low": 50,
+      "high": 300,
+      "step": 25
+    },
+    "max_depth": {
+      "type": "int",
+      "low": 4,
+      "high": 24
+    },
+    "min_samples_leaf": {
+      "type": "int",
+      "low": 1,
+      "high": 12
+    },
+    "max_features": {
+      "type": "float",
+      "low": 0.4,
+      "high": 1.0
+    },
+    "class_weight": {
+      "type": "categorical",
+      "choices": [
+        null,
+        "balanced",
+        "balanced_subsample"
+      ]
+    }
+  },
+  "dataset_sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+  "split_artifact_sha256": "583acb9dbb4ee92852b1d0a9b584cffb2f7b1fc6409dfdb495a46df4cb3d7d1a",
+  "train_indices_sha256": "b078ac348228f8e49c30af463dc1198fb5e8e11d6379e5d842caf580fc728469",
+  "cv_fold_artifact": {
+    "path": "results/hpo/cv_folds_seed42.npz",
+    "sha256": "149fca7f07d85b8afabde2ed23c1eba22927d16c30b506b3b6ba1902c000b769",
+    "folds": [
+      {
+        "fold": 1,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "7a90c624fd48b53712d8a6ba44f092b0c702cc4da93c18d1fb6e70355e4ac52c",
+        "validation_positions_sha256": "447f0d9fe45d59fc224972c08b38e37e00ddbb97566084caa99c90ed12aa51ff",
+        "fit_original_indices_sha256": "9a2a44f01af37282c4671a659c6d534e4a1360ae4e7d658d3ca4c64ca045469f",
+        "validation_original_indices_sha256": "a07a8372a6293af805d565e6f300c52db0980ef6573329d57cbf6f76562120e0"
+      },
+      {
+        "fold": 2,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "977e2f4db0efc4db3ce3e2549609ca83b0228a5510e6038d0fa0064ec39f2371",
+        "validation_positions_sha256": "0c0f25b924acc7f4dca6e9970a5b17b3c282974d78427a4da03539429edbf75a",
+        "fit_original_indices_sha256": "76858ccc99a6412678e7a786a4162b62503e83e4df99099b6ed054e774b764d4",
+        "validation_original_indices_sha256": "9c282d447a574cfe36bf1bd3610b6d03fbccc7fd70e706a997caebf3d1e16e7a"
+      },
+      {
+        "fold": 3,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "881a880bb1c9ad24968a736ca17d42e5e729347529e1ad5a3875f916b321f13e",
+        "validation_positions_sha256": "b0b7a012e1a492e50d1a0794003b29edd2b7977d1fb01d9e961bd4869fad8b7b",
+        "fit_original_indices_sha256": "684d9ad80448f6e0f3ccc173f91df3def9b78a80ce52a48a2851059411a3d7b7",
+        "validation_original_indices_sha256": "591d5aacaa03c97ade6b66278668831c217878460fbfc8ddf1317098a2c4110f"
+      }
+    ]
+  },
+  "feature_columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ]
+}

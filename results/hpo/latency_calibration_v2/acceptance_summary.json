@@ -1,0 +1,210 @@
+{
+  "protocol_version": "latency_calibration_v2",
+  "status": "FAIL",
+  "full_run_blocked": true,
+  "wall_time_seconds": 347.0392901999994,
+  "evidence_counts": {
+    "configurations": 4,
+    "folds_per_configuration": 3,
+    "independent_refit_rounds": 2,
+    "sessions_per_round": 5,
+    "official_session_rows": 120,
+    "official_raw_measurement_rows": 2400,
+    "diagnostic_session_rows": 30,
+    "diagnostic_raw_measurement_rows": 600,
+    "measurement_failures": 0,
+    "contention_flags": 0
+  },
+  "gate": {
+    "status": "FAIL",
+    "full_run_blocked": true,
+    "criterion": "Every config/fold relative range across all sessions and within every independent round <= 15.00%; shared batch; stable prediction digests; no measurement failures or major contention.",
+    "criterion_is_engineering_gate_not_confidence_guarantee": true,
+    "expected_session_rows": 120,
+    "observed_session_rows": 120,
+    "observed_batch_hashes": [
+      "71f19d4ef3cb78ab6c087bf9befd61f14fa4fc52c5636ae70da42648a22bb630"
+    ],
+    "maximum_observed_all_session_relative_range": 1.740066933697064,
+    "maximum_observed_round_relative_range": 0.9990777251381919,
+    "overall_unstable_config_folds": [
+      {
+        "config_id": "114e7ccecdee",
+        "fold": 1,
+        "all_session_median_relative_range": 1.2060843164
+      },
+      {
+        "config_id": "114e7ccecdee",
+        "fold": 2,
+        "all_session_median_relative_range": 1.4318739495
+      },
+      {
+        "config_id": "114e7ccecdee",
+        "fold": 3,
+        "all_session_median_relative_range": 1.2365121036
+      },
+      {
+        "config_id": "48e74e2e02b3",
+        "fold": 1,
+        "all_session_median_relative_range": 1.2816521417
+      },
+      {
+        "config_id": "48e74e2e02b3",
+        "fold": 2,
+        "all_session_median_relative_range": 1.2891640935
+      },
+      {
+        "config_id": "48e74e2e02b3",
+        "fold": 3,
+        "all_session_median_relative_range": 1.2687487822
+      },
+      {
+        "config_id": "5107cee7dd58",
+        "fold": 1,
+        "all_session_median_relative_range": 1.7400669337
+      },
+      {
+        "config_id": "5107cee7dd58",
+        "fold": 2,
+        "all_session_median_relative_range": 1.4618314705
+      },
+      {
+        "config_id": "5107cee7dd58",
+        "fold": 3,
+        "all_session_median_relative_range": 1.4503846158
+      },
+      {
+        "config_id": "f8d997bc1901",
+        "fold": 1,
+        "all_session_median_relative_range": 1.1774798696
+      },
+      {
+        "config_id": "f8d997bc1901",
+        "fold": 2,
+        "all_session_median_relative_range": 1.2508767845
+      },
+      {
+        "config_id": "f8d997bc1901",
+        "fold": 3,
+        "all_session_median_relative_range": 1.3848878645
+      }
+    ],
+    "round_unstable_config_folds": [
+      {
+        "config_id": "114e7ccecdee",
+        "fold": 1,
+        "maximum_round_relative_range": 0.4483455599,
+        "round_relative_ranges_json": "{\"1\":0.03957928734623401,\"2\":0.4483455599221075}"
+      },
+      {
+        "config_id": "114e7ccecdee",
+        "fold": 2,
+        "maximum_round_relative_range": 0.5910788924,
+        "round_relative_ranges_json": "{\"1\":0.03936003911941484,\"2\":0.5910788923747635}"
+      },
+      {
+        "config_id": "114e7ccecdee",
+        "fold": 3,
+        "maximum_round_relative_range": 0.5520032959,
+        "round_relative_ranges_json": "{\"1\":0.04939130706304611,\"2\":0.5520032958606312}"
+      },
+      {
+        "config_id": "48e74e2e02b3",
+        "fold": 1,
+        "maximum_round_relative_range": 0.5139552974,
+        "round_relative_ranges_json": "{\"1\":0.058164465415156345,\"2\":0.5139552973653306}"
+      },
+      {
+        "config_id": "48e74e2e02b3",
+        "fold": 2,
+        "maximum_round_relative_range": 0.4770475067,
+        "round_relative_ranges_json": "{\"1\":0.040215743648493396,\"2\":0.47704750665699175}"
+      },
+      {
+        "config_id": "48e74e2e02b3",
+        "fold": 3,
+        "maximum_round_relative_range": 0.4238839322,
+        "round_relative_ranges_json": "{\"1\":0.049329290917183494,\"2\":0.42388393221485504}"
+      },
+      {
+        "config_id": "5107cee7dd58",
+        "fold": 1,
+        "maximum_round_relative_range": 0.7744809691,
+        "round_relative_ranges_json": "{\"1\":0.06811628782760937,\"2\":0.7744809691431325}"
+      },
+      {
+        "config_id": "5107cee7dd58",
+        "fold": 2,
+        "maximum_round_relative_range": 0.527852833,
+        "round_relative_ranges_json": "{\"1\":0.04917384513914865,\"2\":0.5278528330252119}"
+      },
+      {
+        "config_id": "5107cee7dd58",
+        "fold": 3,
+        "maximum_round_relative_range": 0.6181441464,
+        "round_relative_ranges_json": "{\"1\":0.05442121520967686,\"2\":0.618144146378041}"
+      },
+      {
+        "config_id": "f8d997bc1901",
+        "fold": 1,
+        "maximum_round_relative_range": 0.4593983334,
+        "round_relative_ranges_json": "{\"1\":0.11677836575284684,\"2\":0.4593983333984258}"
+      },
+      {
+        "config_id": "f8d997bc1901",
+        "fold": 2,
+        "maximum_round_relative_range": 0.5438976509,
+        "round_relative_ranges_json": "{\"1\":0.12536085292363608,\"2\":0.5438976509205787}"
+      },
+      {
+        "config_id": "f8d997bc1901",
+        "fold": 3,
+        "maximum_round_relative_range": 0.9990777251,
+        "round_relative_ranges_json": "{\"1\":0.11921555320357977,\"2\":0.9990777251381919}"
+      }
+    ],
+    "prediction_digest_consistent": true,
+    "failure_reasons": [
+      "one or more config/folds exceed 15% across all session medians",
+      "one or more config/folds exceed 15% within an independent round"
+    ],
+    "user_acceptance_required_even_if_passes": true
+  },
+  "constraints": {
+    "latency_cap_ms_per_1000": 35.531700000092314,
+    "latency_cap_interpretation": "fixed_absolute_deployment_target",
+    "model_size_cap_mb": 50.0,
+    "configurations": [
+      {
+        "config_id": "114e7ccecdee",
+        "size_violation_mb": -45.452802,
+        "latency_violation_ms": -8.113575000092318,
+        "feasible": true
+      },
+      {
+        "config_id": "48e74e2e02b3",
+        "size_violation_mb": -44.047177,
+        "latency_violation_ms": 7.255224999907682,
+        "feasible": false
+      },
+      {
+        "config_id": "5107cee7dd58",
+        "size_violation_mb": -49.450318,
+        "latency_violation_ms": -23.531100000092316,
+        "feasible": true
+      },
+      {
+        "config_id": "f8d997bc1901",
+        "size_violation_mb": -40.526118,
+        "latency_violation_ms": -7.274450000092315,
+        "feasible": true
+      }
+    ]
+  },
+  "immutable_artifacts_unchanged": true,
+  "holdout_overlap_count": 0,
+  "holdout_labels_used": false,
+  "full_hpo_executed": false,
+  "git_commit_or_push_performed": false,
+  "user_acceptance_required": true
+}

@@ -1,0 +1,112 @@
+{
+  "fit_metadata": [
+    {
+      "config_id": "48e74e2e02b3",
+      "fold": 1,
+      "fit_duration_ns": 6990622100,
+      "fit_seconds": 6.9906221,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "5107cee7dd58",
+      "fold": 1,
+      "fit_duration_ns": 2473341500,
+      "fit_seconds": 2.4733415,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "f8d997bc1901",
+      "fold": 1,
+      "fit_duration_ns": 1602934600,
+      "fit_seconds": 1.6029346,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "114e7ccecdee",
+      "fold": 1,
+      "fit_duration_ns": 8093162600,
+      "fit_seconds": 8.0931626,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "48e74e2e02b3",
+      "fold": 2,
+      "fit_duration_ns": 7111036200,
+      "fit_seconds": 7.1110362,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "f8d997bc1901",
+      "fold": 2,
+      "fit_duration_ns": 1648672800,
+      "fit_seconds": 1.6486728,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "5107cee7dd58",
+      "fold": 2,
+      "fit_duration_ns": 2478163500,
+      "fit_seconds": 2.4781635,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "114e7ccecdee",
+      "fold": 2,
+      "fit_duration_ns": 8187597300,
+      "fit_seconds": 8.1875973,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "48e74e2e02b3",
+      "fold": 3,
+      "fit_duration_ns": 7000365600,
+      "fit_seconds": 7.0003656,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "5107cee7dd58",
+      "fold": 3,
+      "fit_duration_ns": 2475389900,
+      "fit_seconds": 2.4753899,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "114e7ccecdee",
+      "fold": 3,
+      "fit_duration_ns": 8106466200,
+      "fit_seconds": 8.1064662,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    },
+    {
+      "config_id": "f8d997bc1901",
+      "fold": 3,
+      "fit_duration_ns": 1584012400,
+      "fit_seconds": 1.5840124,
+      "fit_samples": 24112,
+      "random_state": 42,
+      "estimator_n_jobs": 1
+    }
+  ]
+}

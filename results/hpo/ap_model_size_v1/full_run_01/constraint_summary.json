@@ -1,0 +1,9 @@
+{
+  "definition": "g_size = model_size_max_mb - 50.0; feasible iff g_size <= 0",
+  "model_size_cap_mb_decimal": 50.0,
+  "latency_used": false,
+  "completed": 80,
+  "feasible": 80,
+  "infeasible": 0,
+  "failed": 0
+}

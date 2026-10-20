@@ -1,0 +1,68 @@
+{
+  "role": "train-only baseline calibration; not an HPO trial",
+  "holdout_used": false,
+  "folds": [
+    {
+      "fold": 1,
+      "average_precision": 0.410532729763309,
+      "fit_seconds": 1.6851371000002473,
+      "latency_median_ms": 66.89929999993183,
+      "latency_raw_repeats_ms": [
+        79.45540000036999,
+        85.82010000009177,
+        67.4034000003303,
+        66.21579999955429,
+        63.11109999933251,
+        63.46360000043205,
+        66.89929999993183
+      ],
+      "model_size_bytes": 9473882,
+      "model_size_mb": 9.473882
+    },
+    {
+      "fold": 2,
+      "average_precision": 0.4235146586253897,
+      "fit_seconds": 2.6746634000000995,
+      "latency_median_ms": 19.027899999855435,
+      "latency_raw_repeats_ms": [
+        20.068999999239168,
+        19.027899999855435,
+        18.598800000290794,
+        19.994900000710913,
+        19.880799999555165,
+        17.789800000173273,
+        17.852800000582647
+      ],
+      "model_size_bytes": 9460269,
+      "model_size_mb": 9.460269
+    },
+    {
+      "fold": 3,
+      "average_precision": 0.4105347713854031,
+      "fit_seconds": 1.728846999999405,
+      "latency_median_ms": 19.541700000445417,
+      "latency_raw_repeats_ms": [
+        20.56540000012319,
+        21.04479999979958,
+        19.541700000445417,
+        17.686500000309024,
+        17.797200000131852,
+        18.799200000103156,
+        20.76260000012553
+      ],
+      "model_size_bytes": 9392069,
+      "model_size_mb": 9.392069
+    }
+  ],
+  "average_precision_cv_mean": 0.4148607199247006,
+  "average_precision_cv_std": 0.007494530827111077,
+  "average_precision_absolute_delta_from_week2": 0.0,
+  "latency_max_fold_median_ms": 66.89929999993183,
+  "latency_week2_single_model_median_ms": 23.687800000061543,
+  "latency_ratio_cv_max_to_week2_median": 2.8242090865237808,
+  "latency_cap_ms_unchanged": 35.531700000092314,
+  "calibration_passes_frozen_latency_cap": false,
+  "model_size_max_mb": 9.473882,
+  "measurement_mechanics_match_week2": true,
+  "comparability_caveat": "Week 3 source is CV validation and aggregate is max fold median; Week 2 source was one holdout batch for one full-train model. The frozen cap is not changed."
+}

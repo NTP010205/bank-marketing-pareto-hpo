@@ -1,0 +1,569 @@
+{
+  "v1_analysis": {
+    "all_artifacts_read_and_hashed": {
+      "acceptance_summary.json": {
+        "sha256": "1cb2c1bbb0658d2ae2c08c3c26bd3f70175fdc90704880ede1408964eb40249b",
+        "bytes": 1558
+      },
+      "benchmark_batch.json": {
+        "sha256": "0662f2acab1575a9f2c45b1aed74cbeacc819c19eae7b266cb864c6c45e0a9dc",
+        "bytes": 435
+      },
+      "benchmark_batch_indices.npz": {
+        "sha256": "c712327e0066a55b434a879aac16b229f4a9bae6f091b0ee5eec12438bb9cb2f",
+        "bytes": 6237
+      },
+      "config_summary.csv": {
+        "sha256": "79eded039d1f8a343a4243d6cf2ec5ddd818c9058a02ebfc3568284c02ed6525",
+        "bytes": 1823
+      },
+      "config_summary.json": {
+        "sha256": "1a61094c483e1ef53e8fcae822cf67c3ed6f1c4d0c88757a1fa8db2b6f5be2c9",
+        "bytes": 3691
+      },
+      "configurations.json": {
+        "sha256": "33b5d2cede1ea9feeb1208a2a3555156a57e3ed3d70c2ca6d610ef427be395c2",
+        "bytes": 2369
+      },
+      "fit_metadata.json": {
+        "sha256": "50028671a8dc980aec54ab723387f95b859dcbff7b4fe73a7569f85078a6db18",
+        "bytes": 2731
+      },
+      "fold_summary.csv": {
+        "sha256": "6ba7b81f694d61581bfdfabc0981e0150707c8cd0a03f0d8282c0b28ab9b8176",
+        "bytes": 4104
+      },
+      "fold_summary.json": {
+        "sha256": "267f85d52b4afcc68af6c23aceaf596e5122e276d4fb3168e1658bd3a3f0c5fc",
+        "bytes": 8835
+      },
+      "gate_decision.json": {
+        "sha256": "1e71aa510ba0f3110c403f9b58c5b79f164eaf48899ac0b206cf9c0e15f1f9ca",
+        "bytes": 764
+      },
+      "manifest.json": {
+        "sha256": "0461b46de605e60275d7d558167012de290deb146fe6be91ee7ff951b09a2200",
+        "bytes": 14823
+      },
+      "raw_measurements.csv": {
+        "sha256": "951345c79ad00e1fb331031a2df3c7c553d8086ff82ce6676cfc185513faa6e5",
+        "bytes": 98167
+      },
+      "raw_measurements.json": {
+        "sha256": "bdc321248eaf1b1a3acb64a613a69ca8be8d658f47fc282b7808f28003634cff",
+        "bytes": 309435
+      },
+      "resolved_calibration_config.json": {
+        "sha256": "6d584cb91084caac8f2fdaab428e5e277635248b220ba231be2d0e49787c8549",
+        "bytes": 1686
+      },
+      "run_order.json": {
+        "sha256": "1c24e957e171932ee3092f39efba503f7b5f44f145de8e9787ca1fe4839b4c53",
+        "bytes": 3374
+      },
+      "session_summary.csv": {
+        "sha256": "50ad01227dfa55f887ee2858f12cdf6469fb355e1df4ef36d95dce14004945a2",
+        "bytes": 63827
+      },
+      "session_summary.json": {
+        "sha256": "66eaaa0d4184f2d6f59e3c9a4759037e65294e9678ee04f4b0ac064fedbd1925",
+        "bytes": 108596
+      }
+    },
+    "csv_rows": {
+      "raw_measurements": 900,
+      "session_summary": 60,
+      "fold_summary": 12,
+      "config_summary": 4
+    },
+    "baseline_fold3_session_medians_ms_per_1000": [
+      21.1248,
+      21.4055,
+      18.8868,
+      19.4575,
+      18.0182
+    ],
+    "baseline_fold3_order_positions": [
+      4,
+      4,
+      2,
+      2,
+      4
+    ],
+    "baseline_order_latency_spearman": 0.2393172105652397,
+    "baseline_system_cpu_latency_spearman": -0.0035714285714285704,
+    "baseline_process_efficiency_latency_spearman": -0.12142857142857141,
+    "fixed_fold_order_confounding_present": true,
+    "finding": "V1 fold 3 was always measured after folds 1 and 2. Baseline F3 drifted downward across sessions without a strong observed CPU/order association; cache, Windows scheduling, power/thermal state and elapsed-time effects remain plausible, not proven."
+  },
+  "v2_diagnostic_protocol": {
+    "scope": "baseline_all_three_folds",
+    "independent_refit_rounds": 2,
+    "sessions_per_round": 5,
+    "warmup_calls_per_session": 10,
+    "timed_repeats_per_session": 20,
+    "interleave_seed": 420032
+  },
+  "v2_diagnostic_fold_results": [
+    {
+      "fold": 1,
+      "session_medians_ms_per_1000": [
+        20.0488,
+        18.7911,
+        19.5503,
+        18.178449999999998,
+        19.2681,
+        17.8613,
+        19.743650000000002,
+        19.5219,
+        18.56515,
+        18.65335
+      ],
+      "relative_range_all_sessions": 0.11502134007354005,
+      "relative_ranges_by_round": {
+        "1": 0.09757999932176342,
+        "2": 0.09975849366184991
+      },
+      "median_ms_per_1000": 19.029600000000002
+    },
+    {
+      "fold": 2,
+      "session_medians_ms_per_1000": [
+        19.1928,
+        18.516350000000003,
+        19.232999999999997,
+        20.401,
+        19.056449999999998,
+        18.8978,
+        19.250999999999998,
+        19.618299999999998,
+        19.8014,
+        19.40335
+      ],
+      "relative_range_all_sessions": 0.09746268127999232,
+      "relative_ranges_by_round": {
+        "1": 0.09775196162639663,
+        "2": 0.04659084053774373
+      },
+      "median_ms_per_1000": 19.241999999999997
+    },
+    {
+      "fold": 3,
+      "session_medians_ms_per_1000": [
+        18.634999999999998,
+        18.698700000000002,
+        17.900599999999997,
+        17.748600000000003,
+        19.2539,
+        18.131,
+        17.68425,
+        17.81295,
+        17.703850000000003,
+        18.36305
+      ],
+      "relative_range_all_sessions": 0.0862767881828312,
+      "relative_ranges_by_round": {
+        "1": 0.08159975194282533,
+        "2": 0.03783930225842897
+      },
+      "median_ms_per_1000": 18.0158
+    }
+  ],
+  "v2_diagnostic_prediction_digest_consistent": true,
+  "official_prediction_digest_consistent": true,
+  "official_prediction_digest_unique_counts": {
+    "114e7ccecdee_fold_1": 1,
+    "114e7ccecdee_fold_2": 1,
+    "114e7ccecdee_fold_3": 1,
+    "48e74e2e02b3_fold_1": 1,
+    "48e74e2e02b3_fold_2": 1,
+    "48e74e2e02b3_fold_3": 1,
+    "5107cee7dd58_fold_1": 1,
+    "5107cee7dd58_fold_2": 1,
+    "5107cee7dd58_fold_3": 1,
+    "f8d997bc1901_fold_1": 1,
+    "f8d997bc1901_fold_2": 1,
+    "f8d997bc1901_fold_3": 1
+  },
+  "frequency_observation": {
+    "available_session_rows": 120,
+    "minimum_observed_current_mhz": 1466.0,
+    "maximum_observed_current_mhz": 2200.0,
+    "median_of_pre_block_medians_mhz": 2200.0
+  },
+  "system_cpu_percent_range": [
+    5.00945179584121,
+    27.808326787117046
+  ],
+  "process_cpu_efficiency_percent_range": [
+    81.4020699202203,
+    103.44622120608915
+  ],
+  "process_thread_count_range": [
+    47,
+    49
+  ],
+  "process_priority_classes": [
+    32
+  ],
+  "contention_flags": 0,
+  "measurement_failures": 0,
+  "environment_start": {
+    "background_processes": {
+      "available": true,
+      "timestamp_utc": "2026-10-20T04:55:59.254209+00:00",
+      "top_by_cumulative_cpu": [
+        {
+          "ProcessName": "chrome",
+          "Id": 5444,
+          "CPU": 1185.921875,
+          "ThreadCount": 39,
+          "WorkingSet64": 772583424
+        },
+        {
+          "ProcessName": "Code",
+          "Id": 23192,
+          "CPU": 376.640625,
+          "ThreadCount": 21,
+          "WorkingSet64": 247037952
+        },
+        {
+          "ProcessName": "chrome",
+          "Id": 28668,
+          "CPU": 353.671875,
+          "ThreadCount": 43,
+          "WorkingSet64": 624959488
+        },
+        {
+          "ProcessName": "chrome",
+          "Id": 20792,
+          "CPU": 281.984375,
+          "ThreadCount": 21,
+          "WorkingSet64": 288886784
+        },
+        {
+          "ProcessName": "Code",
+          "Id": 15928,
+          "CPU": 272.234375,
+          "ThreadCount": 32,
+          "WorkingSet64": 527519744
+        },
+        {
+          "ProcessName": "chrome",
+          "Id": 19076,
+          "CPU": 241.15625,
+          "ThreadCount": 47,
+          "WorkingSet64": 295882752
+        },
+        {
+          "ProcessName": "Code",
+          "Id": 4388,
+          "CPU": 175.203125,
+          "ThreadCount": 36,
+          "WorkingSet64": 366424064
+        },
+        {
+          "ProcessName": "Zalo",
+          "Id": 25732,
+          "CPU": 158.515625,
+          "ThreadCount": 54,
+          "WorkingSet64": 250294272
+        },
+        {
+          "ProcessName": "audiodg",
+          "Id": 4524,
+          "CPU": 131.0625,
+          "ThreadCount": 9,
+          "WorkingSet64": 35790848
+        },
+        {
+          "ProcessName": "chrome",
+          "Id": 17372,
+          "CPU": 109.671875,
+          "ThreadCount": 38,
+          "WorkingSet64": 143020032
+        },
+        {
+          "ProcessName": "wpscloudsvr",
+          "Id": 7284,
+          "CPU": 88.265625,
+          "ThreadCount": 97,
+          "WorkingSet64": 9146368
+        },
+        {
+          "ProcessName": "wallpaper32",
+          "Id": 21040,
+          "CPU": 86.65625,
+          "ThreadCount": 34,
+          "WorkingSet64": 215928832
+        },
+        {
+          "ProcessName": "Code",
+          "Id": 29180,
+          "CPU": 85.453125,
+          "ThreadCount": 52,
+          "WorkingSet64": 587759616
+        },
+        {
+          "ProcessName": "wps",
+          "Id": 23476,
+          "CPU": 72.34375,
+          "ThreadCount": 25,
+          "WorkingSet64": 66588672
+        },
+        {
+          "ProcessName": "Zalo",
+          "Id": 25904,
+          "CPU": 68.640625,
+          "ThreadCount": 32,
+          "WorkingSet64": 126095360
+        }
+      ],
+      "error": null
+    },
+    "processor_power": {
+      "status": 0,
+      "available": true,
+      "logical_processors": 24,
+      "current_mhz_min": 1466,
+      "current_mhz_median": 2200.0,
+      "current_mhz_max": 2200,
+      "max_mhz_min": 2200,
+      "max_mhz_max": 2200,
+      "mhz_limit_min": 2200,
+      "mhz_limit_max": 2200,
+      "current_mhz_by_processor": [
+        2200,
+        2200,
+        2200,
+        2200,
+        1466,
+        1466,
+        1466,
+        1466,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        2200,
+        1512,
+        1512,
+        2200,
+        2200,
+        2200,
+        2200,
+        1512,
+        1512
+      ]
+    },
+    "process_priority_class": 32,
+    "process_thread_count": 50,
+    "active_power_plan": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+    "processor_minimum_state": {
+      "alias": "PROCTHROTTLEMIN",
+      "returncode": 0,
+      "output": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)\n  GUID Alias: SCHEME_BALANCED\n  Subgroup GUID: 54533251-82be-4824-96c1-47b60b740d00  (Processor power management)\n    GUID Alias: SUB_PROCESSOR\n    Power Setting GUID: 893dee8e-2bef-41e0-89c6-b55d0929964c  (Minimum processor state)\n      GUID Alias: PROCTHROTTLEMIN\n      Minimum Possible Setting: 0x00000000\n      Maximum Possible Setting: 0x00000064\n      Possible Settings increment: 0x00000001\n      Possible Settings units: %\n    Current AC Power Setting Index: 0x00000005\n    Current DC Power Setting Index: 0x00000005"
+    },
+    "processor_maximum_state": {
+      "alias": "PROCTHROTTLEMAX",
+      "returncode": 0,
+      "output": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)\n  GUID Alias: SCHEME_BALANCED\n  Subgroup GUID: 54533251-82be-4824-96c1-47b60b740d00  (Processor power management)\n    GUID Alias: SUB_PROCESSOR\n    Power Setting GUID: bc5038f7-23e0-4960-96da-33abaf5935ec  (Maximum processor state)\n      GUID Alias: PROCTHROTTLEMAX\n      Minimum Possible Setting: 0x00000000\n      Maximum Possible Setting: 0x00000064\n      Possible Settings increment: 0x00000001\n      Possible Settings units: %\n    Current AC Power Setting Index: 0x00000064\n    Current DC Power Setting Index: 0x00000064"
+    }
+  },
+  "environment_end": {
+    "background_processes": {
+      "available": true,
+      "timestamp_utc": "2026-10-20T05:01:45.756885+00:00",
+      "top_by_cumulative_cpu": [
+        {
+          "ProcessName": "chrome",
+          "Id": 5444,
+          "CPU": 1191.53125,
+          "ThreadCount": 39,
+          "WorkingSet64": 806739968
+        },
+        {
+          "ProcessName": "Code",
+          "Id": 23192,
+          "CPU": 414.859375,
+          "ThreadCount": 19,
+          "WorkingSet64": 267173888
+        },
+        {
+          "ProcessName": "chrome",
+          "Id": 28668,
+          "CPU": 379.109375,
+          "ThreadCount": 43,
+          "WorkingSet64": 775294976
+        },
+        {
+          "ProcessName": "python",
+          "Id": 12440,
+          "CPU": 308.171875,
+          "ThreadCount": 51,
+          "WorkingSet64": 185438208
+        },
+        {
+          "ProcessName": "chrome",
+          "Id": 20792,
+          "CPU": 296.578125,
+          "ThreadCount": 25,
+          "WorkingSet64": 630812672
+        },
+        {
+          "ProcessName": "Code",
+          "Id": 15928,
+          "CPU": 294.3125,
+          "ThreadCount": 32,
+          "WorkingSet64": 505688064
+        },
+        {
+          "ProcessName": "chrome",
+          "Id": 19076,
+          "CPU": 266.453125,
+          "ThreadCount": 51,
+          "WorkingSet64": 348565504
+        },
+        {
+          "ProcessName": "Code",
+          "Id": 4388,
+          "CPU": 183.59375,
+          "ThreadCount": 36,
+          "WorkingSet64": 381390848
+        },
+        {
+          "ProcessName": "Zalo",
+          "Id": 25732,
+          "CPU": 159.96875,
+          "ThreadCount": 54,
+          "WorkingSet64": 250650624
+        },
+        {
+          "ProcessName": "audiodg",
+          "Id": 4524,
+          "CPU": 139.921875,
+          "ThreadCount": 14,
+          "WorkingSet64": 36454400
+        },
+        {
+          "ProcessName": "chrome",
+          "Id": 17372,
+          "CPU": 119.640625,
+          "ThreadCount": 38,
+          "WorkingSet64": 429903872
+        },
+        {
+          "ProcessName": "wpscloudsvr",
+          "Id": 7284,
+          "CPU": 91.75,
+          "ThreadCount": 97,
+          "WorkingSet64": 10661888
+        },
+        {
+          "ProcessName": "wallpaper32",
+          "Id": 21040,
+          "CPU": 90.765625,
+          "ThreadCount": 34,
+          "WorkingSet64": 216338432
+        },
+        {
+          "ProcessName": "Code",
+          "Id": 29180,
+          "CPU": 89.546875,
+          "ThreadCount": 53,
+          "WorkingSet64": 591278080
+        },
+        {
+          "ProcessName": "wps",
+          "Id": 23476,
+          "CPU": 75.140625,
+          "ThreadCount": 25,
+          "WorkingSet64": 67010560
+        }
+      ],
+      "error": null
+    },
+    "processor_power": {
+      "status": 0,
+      "available": true,
+      "logical_processors": 24,
+      "current_mhz_min": 1466,
+      "current_mhz_median": 2200.0,
+      "current_mhz_max": 2200,
+      "max_mhz_min": 2200,
+      "max_mhz_max": 2200,
+      "mhz_limit_min": 2200,
+      "mhz_limit_max": 2200,
+      "current_mhz_by_processor": [
+        2200,
+        1466,
+        2200,
+        1466,
+        1466,
+        2200,
+        2200,
+        2200,
+        1466,
+        2200,
+        2200,
+        2200,
+        1466,
+        2200,
+        2200,
+        2200,
+        1512,
+        1512,
+        2200,
+        2200,
+        1512,
+        1512,
+        2200,
+        2200
+      ]
+    },
+    "process_priority_class": 32,
+    "process_thread_count": 49,
+    "active_power_plan": "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)"
+  },
+  "constraint_and_pareto_audit": {
+    "objective_directions": [
+      "maximize",
+      "minimize"
+    ],
+    "constraint_convention": "g_i <= 0 is feasible",
+    "completed_trials_checked": 6,
+    "feasibility_mismatches": [],
+    "pareto_rows": 3,
+    "invalid_pareto_rows": 0,
+    "pass": true
+  },
+  "postrun_analysis": {
+    "diagnostic_baseline_all_folds_passed_15_percent": true,
+    "diagnostic_maximum_all_session_relative_range": 0.11502134007354005,
+    "official_round_1_all_config_folds_passed_15_percent": true,
+    "official_round_1_maximum_relative_range": 0.12536085292363608,
+    "official_round_2_all_config_folds_passed_15_percent": false,
+    "official_round_2_maximum_relative_range": 0.9990777251381919,
+    "official_round_1_median_session_latency_ms_per_1000": 18.28945,
+    "official_round_2_median_session_latency_ms_per_1000": 48.10365,
+    "official_round_2_to_round_1_median_latency_ratio": 2.6301310318243574,
+    "fit_time_round_1_seconds": 57.8290602,
+    "fit_time_round_2_seconds": 77.4183983,
+    "fit_time_round_2_increase_percent": 33.874557242069805,
+    "system_cpu_median_percent_by_round": {
+      "1": 8.606333188933908,
+      "2": 14.70234379286243
+    },
+    "process_cpu_efficiency_median_percent_by_round": {
+      "1": 98.94405535936943,
+      "2": 91.75772071111699
+    },
+    "processor_mhz_observation_limitation": "CallNtPowerInformation reported a higher median current-MHz snapshot in the slower round and does not identify the executing core, turbo state, temperature, or throttling reason; it cannot explain the slowdown causally.",
+    "most_supported_interpretation": "The slowdown is run-wide and time-dependent rather than fold-, configuration-, prediction-, batch-, or output-dependent. Sustained-load power/thermal behavior, Windows scheduling across heterogeneous cores, memory/cache pressure, and background workloads remain plausible. No single cause is proven by available telemetry.",
+    "integrity_consequence": "Round 2 is retained in full. Its cross-configuration slowdown invalidates the stability gate and makes all v2 constraint-feasibility labels diagnostic only."
+  },
+  "causal_conclusion": "The measurements can test whether v1 instability reproduces after removing fixed fold order and adding independent refits. They cannot uniquely attribute residual variation to frequency, scheduler, cache, thermal state or background processes."
+}

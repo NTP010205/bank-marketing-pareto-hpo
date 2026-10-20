@@ -1,0 +1,31 @@
+{
+  "source": "trial_history.csv and pareto_unique.csv generated from the same official studies",
+  "generation_module": "src.optimize_ap_model_size",
+  "figures": {
+    "best_feasible_ap_vs_trial.png": {
+      "method": "Running maximum feasible mean CV AP by sampler and attempt.",
+      "sha256": "e4a60887ad0655733971107634680c762e7bd2f7211cbaf0a0b12f306c77a326",
+      "bytes": 56214
+    },
+    "ap_vs_model_size_pareto.png": {
+      "method": "All complete trials with the unique feasible Pareto front overlaid.",
+      "sha256": "f7874f5811f3112fc239acf82c536f6abd025279e483158ef4fef3cf792badb5",
+      "bytes": 91497
+    },
+    "random_vs_tpe_comparison.png": {
+      "method": "Best feasible AP and unique Pareto coverage at 40 attempts; descriptive single-seed comparison.",
+      "sha256": "efdccbffcf5c442791b3a59cbdcc445c5126bdab3f281274ef662f104d061dbb",
+      "bytes": 62095
+    },
+    "trial_size_distribution.png": {
+      "method": "Boxplot of max-fold serialized pipeline size for complete trials by sampler.",
+      "sha256": "9fe8624edf6201e7f22b6a3426cf39368f9a32f516ba47aea622fb103424a5c3",
+      "bytes": 33769
+    },
+    "cumulative_evaluation_cost.png": {
+      "method": "Cumulative Optuna trial duration by sampler and attempt.",
+      "sha256": "96c5afd60acad8df1ba69ec688db0a87009195361da2f1ae2d05f2a20793de0f",
+      "bytes": 70467
+    }
+  }
+}

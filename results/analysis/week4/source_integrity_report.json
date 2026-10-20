@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "checks": {
+    "required_files_present": true,
+    "manifest_artifact_hashes_match": true,
+    "figure_manifest_hashes_match": true,
+    "csv_json_consistent": true,
+    "sqlite_consistent": true,
+    "fold_row_count_is_240": true,
+    "three_folds_per_trial": true,
+    "pareto_hash_set_recomputed": true,
+    "selected_consistent_with_audit": true,
+    "selected_full_train_feasible": true,
+    "latency_absent_from_trial_columns": true,
+    "holdout_absent_from_trial_columns": true,
+    "manifest_says_holdout_unused": true
+  },
+  "missing_files": [],
+  "artifact_hash_mismatches": [],
+  "figure_hash_mismatches": [],
+  "csv_json_checks": {
+    "row_count_equal": true,
+    "config_hash_sequence_equal": true,
+    "ap_values_close_at_1e_9": true,
+    "ap_max_absolute_json_rounding_delta": 4.9634407695009486e-11,
+    "size_bytes_equal": true
+  },
+  "sqlite_checks": {
+    "random": {
+      "trial_count": 40,
+      "all_states_complete": true,
+      "ap_matches_csv": true,
+      "size_matches_csv": true
+    },
+    "tpe": {
+      "trial_count": 40,
+      "all_states_complete": true,
+      "ap_matches_csv": true,
+      "size_matches_csv": true
+    }
+  },
+  "official_pareto_hash_count": 13,
+  "recomputed_pareto_hash_count": 13
+}

@@ -1,0 +1,5 @@
+model,role,sampler,trial_number,config_hash,cv_ap_mean,cv_ap_std,cv_max_fold_size_mb,full_train_size_mb
+Baseline,registered_baseline,baseline,,baseline_week2,0.4148607199247006,0.007494530827111077,,14.008766
+Best Random,best_ap,random,31.0,ac0109f5352e,0.4461627285874447,0.0043369697639206,4.83608,
+Best Tpe,best_ap,tpe,38.0,cd972e72ea0a,0.4461861893244469,0.0045716455573399,3.693059,
+Selected TPE,near_best_smallest_size,tpe,35.0,4cdd6dd35f1d,0.44341749539409525,0.005461665711254037,1.034871,1.28934

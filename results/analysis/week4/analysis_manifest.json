@@ -1,0 +1,80 @@
+{
+  "status": "PASS",
+  "source_policy": "official full_run_01 plus frozen Week 1-2 baseline and frozen train rows only",
+  "source_sha256": {
+    "results\\hpo\\ap_model_size_v1\\full_run_01\\run_manifest.json": "117f638bed4593da724585b99235e8d8a8e9301c05fb384d5d709c1d375f644c",
+    "results\\hpo\\ap_model_size_v1\\full_run_01\\trial_history.csv": "e61474f57f8148a0d656d69aaafb38987112440413b190b84853f76474fe8ce2",
+    "results\\hpo\\ap_model_size_v1\\full_run_01\\trial_history.json": "ec903ef06c7e89d03f62aeafa630134a92f61dcf3b6e1d5ba88e69b2fe0b8100",
+    "results\\hpo\\ap_model_size_v1\\full_run_01\\fold_metrics.csv": "ab7c61626903e2be9264c8ee3e9f807931f487256faf41143af741b1ccc5c1e9",
+    "results\\hpo\\ap_model_size_v1\\full_run_01\\pareto_unique.csv": "a0826bf3dfd7c73ab35c0abf8ae618399ad7c69b02ea83fc4bab6a1701fe957a",
+    "results\\hpo\\ap_model_size_v1\\full_run_01\\selected_candidate.json": "5827d7ee6d4a0a5bf1055ce437abfa8feb02071b7d956d9d61e6a4d347cc9199",
+    "results\\hpo\\ap_model_size_v1\\full_run_01\\full_train_size_audit.json": "29aac95e9f8f72b1d988ad5e04474b69a4b13efadb296e79d5fc3bce8e63b416",
+    "results\\baseline\\cv_summary.json": "ec65117f44b9cac6e741da65134336cf1995a64839619e199fd94152cdcbb346",
+    "results\\baseline\\model_artifact.json": "97bf6eaf0e89af6ce27eee11ebc232ed6be89bf3abe524a8ba5002be60232904",
+    "results\\baseline\\split_indices.npz": "583acb9dbb4ee92852b1d0a9b584cffb2f7b1fc6409dfdb495a46df4cb3d7d1a",
+    "data\\raw\\bank-full.csv": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d"
+  },
+  "script_sha256": "b1a285f84484f124b942e5ec6a2121dd42c8483a21b14d5e90b9da3ce13ef328",
+  "analysis_module_sha256": "a0b2f95240ab4d65206458611ce3939d6b731695d9ce3dcfe87e1cb57f84fb3f",
+  "figures": {
+    "01_best_so_far_cv_ap": {
+      "png": "figures\\week4\\01_best_so_far_cv_ap.png",
+      "png_sha256": "8371a20b66fc17730509ea777ae871416ee15805682bf8c2a844745c1555ee43",
+      "png_bytes": 89952,
+      "pdf": "figures\\week4\\01_best_so_far_cv_ap.pdf",
+      "pdf_sha256": "490e52f4b10417b552d5fda9b4b17c7943ba84bff9959ec494e8a3ed4c99c31a",
+      "pdf_bytes": 14503
+    },
+    "02_ap_vs_model_size": {
+      "png": "figures\\week4\\02_ap_vs_model_size.png",
+      "png_sha256": "d6a315b272196c128b039af4f6f52d9a31f67cc0e46f953ffb9b8419bf4c640e",
+      "png_bytes": 184979,
+      "pdf": "figures\\week4\\02_ap_vs_model_size.pdf",
+      "pdf_sha256": "087993fd0177d7859a9527f44cf1783828766666f89ca7aaaa4f98917533a8fb",
+      "pdf_bytes": 17924
+    },
+    "03_pareto_selected": {
+      "png": "figures\\week4\\03_pareto_selected.png",
+      "png_sha256": "09d022ef2ca7753d6fc112e8694effed5c91ca0f0390bd58c1c2fc6fb11addc1",
+      "png_bytes": 166240,
+      "pdf": "figures\\week4\\03_pareto_selected.pdf",
+      "pdf_sha256": "dd54a2dd0ea10480d9d280b754a41f747716b923925f5ddd959d45c6320d2c5b",
+      "pdf_bytes": 19125
+    },
+    "04_model_size_distribution": {
+      "png": "figures\\week4\\04_model_size_distribution.png",
+      "png_sha256": "39a01b526308fc6f0e63497c7d40d6fb4d50d3b7b8812eea79f3bebae6b91ad4",
+      "png_bytes": 66822,
+      "pdf": "figures\\week4\\04_model_size_distribution.pdf",
+      "pdf_sha256": "a3e31adbe251b6ef4e88b1b3aa52ab9d815ab807ad49a7184bf1fcdfd3fea07c",
+      "pdf_bytes": 14304
+    },
+    "05_cumulative_search_time": {
+      "png": "figures\\week4\\05_cumulative_search_time.png",
+      "png_sha256": "c40d51ebf69796c1ba71587f4d2e458d132440be56fe5ade8209e055fb03133f",
+      "png_bytes": 139205,
+      "pdf": "figures\\week4\\05_cumulative_search_time.pdf",
+      "pdf_sha256": "b96b0875bf169747de041f7bb793ed3e3a85cb36285a2d9e6a15757008bf8f9d",
+      "pdf_bytes": 14061
+    },
+    "06_key_models_comparison": {
+      "png": "figures\\week4\\06_key_models_comparison.png",
+      "png_sha256": "85633ec865498106e5e9855ae7ed00257f3081051765aac7b73c9372fc2f47db",
+      "png_bytes": 198809,
+      "pdf": "figures\\week4\\06_key_models_comparison.pdf",
+      "pdf_sha256": "08fb6683d92b6b22ecf50148de92c02633d3b80d266bc6e60876e41c9e7b88f0",
+      "pdf_bytes": 18463
+    },
+    "07_ap_loss_vs_size_reduction": {
+      "png": "figures\\week4\\07_ap_loss_vs_size_reduction.png",
+      "png_sha256": "759d0f81b99fcc24212c9e0b5c5aeb72e8c20171bc8b1808698e18d7fd62e472",
+      "png_bytes": 144766,
+      "pdf": "figures\\week4\\07_ap_loss_vs_size_reduction.pdf",
+      "pdf_sha256": "7340b918ba6bc9114eaa7d267a28208424005ba186817952ea5794c483071721",
+      "pdf_bytes": 16398
+    }
+  },
+  "holdout_materialized": false,
+  "training_performed": false,
+  "hpo_performed": false
+}

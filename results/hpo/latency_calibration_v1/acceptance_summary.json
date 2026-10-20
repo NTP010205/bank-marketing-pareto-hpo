@@ -1,0 +1,41 @@
+{
+  "protocol_version": "latency_calibration_v1",
+  "status": "FAIL",
+  "full_run_blocked": true,
+  "wall_time_seconds": 83.4235592999994,
+  "evidence_counts": {
+    "configurations": 4,
+    "folds_per_configuration": 3,
+    "sessions_per_configuration_fold": 5,
+    "timed_repeats_per_session": 15,
+    "session_rows": 60,
+    "raw_measurement_rows": 900,
+    "measurement_failures": 0,
+    "contention_flags": 0
+  },
+  "failure": {
+    "reason": "One config/fold exceeded the <=15% session-median relative-range gate.",
+    "config_id": "f8d997bc1901",
+    "label": "week2_baseline_rf",
+    "fold": 3,
+    "observed_relative_range": 0.1712612040512555,
+    "maximum_allowed_relative_range": 0.15
+  },
+  "historical_cap": {
+    "historic_holdout_baseline_ms_per_1000": 23.687800000061543,
+    "unchanged_cap_ms_per_1000": 35.531700000092314,
+    "registered_multiplier": 1.5,
+    "calibrated_cv_baseline_max_fold_median_ms_per_1000": 19.7269,
+    "historic_cap_divided_by_calibrated_cv_baseline": 1.8011801144676718,
+    "interpretation": "The unchanged cap is not a like-for-like 1.5x calibrated CV-baseline cap."
+  },
+  "safety": {
+    "benchmark_batch_holdout_overlap_count": 0,
+    "holdout_labels_used": false,
+    "baseline_artifacts_unchanged": true,
+    "pilot_artifacts_unchanged": true,
+    "full_hpo_executed": false,
+    "git_commit_or_push_performed": false
+  },
+  "environment_note": "Manifest priority class value 0 denotes a failed Windows API query and must be treated as unknown; this does not change timing observations or gate logic."
+}

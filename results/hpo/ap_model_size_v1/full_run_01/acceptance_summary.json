@@ -1,0 +1,40 @@
+{
+  "protocol_version": "ap_model_size_v1",
+  "scope": "official_full_run_01_40_plus_40",
+  "status": "PASS",
+  "checks": {
+    "exactly_40_attempts_per_sampler": true,
+    "no_trial_failures": true,
+    "three_fold_rows_per_complete_trial": true,
+    "ap_size_constraint_aggregates_correct": true,
+    "pareto_recomputation_exact": true,
+    "pareto_only_completed_feasible": true,
+    "unique_pareto_hashes_unique": true,
+    "latency_excluded": true,
+    "old_artifacts_unchanged": true,
+    "resume_does_not_add_trials_at_budget": true,
+    "ap_latency_runner_still_blocked": true,
+    "full_train_selected_candidate_feasible": true,
+    "holdout_unused": true,
+    "all_required_figures_exist": true
+  },
+  "trial_counts": {
+    "random": {
+      "attempted": 40,
+      "complete": 40,
+      "failed": 0
+    },
+    "tpe": {
+      "attempted": 40,
+      "complete": 40,
+      "failed": 0
+    }
+  },
+  "pareto": {
+    "total_entries": 13,
+    "distinct_configurations": 13,
+    "duplicate_entries": 0
+  },
+  "full_run_status": "COMPLETED_AWAITING_USER_ACCEPTANCE",
+  "holdout_evaluation_performed": false
+}

@@ -1,0 +1,329 @@
+{
+  "phase": "week_3_pilot",
+  "timestamp_utc": "2026-10-20T04:24:25.545173+00:00",
+  "wall_time_seconds": 0.7392966999996133,
+  "protocol_fingerprint": "5e7278339dbffaf94f2bed5662441dfab8bf1f52aba4c3c30523ed3111f81cbf",
+  "dataset_sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+  "dataset_shape_validated": [
+    45211,
+    17
+  ],
+  "holdout_policy": {
+    "week_2_baseline_holdout_was_evaluated_once": true,
+    "week_3_holdout_features_or_labels_used": false,
+    "training_rows": 36168,
+    "source": "train_indices only from frozen split_indices.npz"
+  },
+  "train_indices_sha256": "b078ac348228f8e49c30af463dc1198fb5e8e11d6379e5d842caf580fc728469",
+  "split_artifact_sha256": "583acb9dbb4ee92852b1d0a9b584cffb2f7b1fc6409dfdb495a46df4cb3d7d1a",
+  "cv_fold_artifact": {
+    "path": "results\\hpo\\cv_folds_seed42.npz",
+    "sha256": "149fca7f07d85b8afabde2ed23c1eba22927d16c30b506b3b6ba1902c000b769",
+    "folds": [
+      {
+        "fold": 1,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_original_indices_sha256": "9a2a44f01af37282c4671a659c6d534e4a1360ae4e7d658d3ca4c64ca045469f",
+        "validation_original_indices_sha256": "a07a8372a6293af805d565e6f300c52db0980ef6573329d57cbf6f76562120e0"
+      },
+      {
+        "fold": 2,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_original_indices_sha256": "76858ccc99a6412678e7a786a4162b62503e83e4df99099b6ed054e774b764d4",
+        "validation_original_indices_sha256": "9c282d447a574cfe36bf1bd3610b6d03fbccc7fd70e706a997caebf3d1e16e7a"
+      },
+      {
+        "fold": 3,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_original_indices_sha256": "684d9ad80448f6e0f3ccc173f91df3def9b78a80ce52a48a2851059411a3d7b7",
+        "validation_original_indices_sha256": "591d5aacaa03c97ade6b66278668831c217878460fbfc8ddf1317098a2c4110f"
+      }
+    ]
+  },
+  "baseline_reference": {
+    "cv_average_precision_mean": 0.4148607199247006,
+    "cv_average_precision_std": 0.007494530827111077,
+    "baseline_latency_per_1000_samples_ms": 23.687800000061543,
+    "baseline_model_size_mb": 14.008766,
+    "model_size_cap_mb": 50.0,
+    "latency_cap_ms": 35.531700000092314,
+    "infeasible_policy": "log_and_do_not_relax",
+    "artifact_hashes": {
+      "cv_summary.json": "ec65117f44b9cac6e741da65134336cf1995a64839619e199fd94152cdcbb346",
+      "latency.json": "d06d56d8a6ca1ef128a0263279c34c3f0be85d614a240f8942183534aa744e26",
+      "model_artifact.json": "97bf6eaf0e89af6ce27eee11ebc232ed6be89bf3abe524a8ba5002be60232904",
+      "week3_constraints.json": "1218820910a023daaea7b4edebc8d3d10d49d74b3d2e347ce898761e9bb602cc"
+    }
+  },
+  "baseline_cv_calibration": {
+    "role": "train-only baseline calibration; not an HPO trial",
+    "holdout_used": false,
+    "folds": [
+      {
+        "fold": 1,
+        "average_precision": 0.410532729763309,
+        "fit_seconds": 1.6851371000002473,
+        "latency_median_ms": 66.89929999993183,
+        "latency_raw_repeats_ms": [
+          79.45540000036999,
+          85.82010000009177,
+          67.4034000003303,
+          66.21579999955429,
+          63.11109999933251,
+          63.46360000043205,
+          66.89929999993183
+        ],
+        "model_size_bytes": 9473882,
+        "model_size_mb": 9.473882
+      },
+      {
+        "fold": 2,
+        "average_precision": 0.4235146586253897,
+        "fit_seconds": 2.6746634000000995,
+        "latency_median_ms": 19.027899999855435,
+        "latency_raw_repeats_ms": [
+          20.068999999239168,
+          19.027899999855435,
+          18.598800000290794,
+          19.994900000710913,
+          19.880799999555165,
+          17.789800000173273,
+          17.852800000582647
+        ],
+        "model_size_bytes": 9460269,
+        "model_size_mb": 9.460269
+      },
+      {
+        "fold": 3,
+        "average_precision": 0.4105347713854031,
+        "fit_seconds": 1.728846999999405,
+        "latency_median_ms": 19.541700000445417,
+        "latency_raw_repeats_ms": [
+          20.56540000012319,
+          21.04479999979958,
+          19.541700000445417,
+          17.686500000309024,
+          17.797200000131852,
+          18.799200000103156,
+          20.76260000012553
+        ],
+        "model_size_bytes": 9392069,
+        "model_size_mb": 9.392069
+      }
+    ],
+    "average_precision_cv_mean": 0.4148607199247006,
+    "average_precision_cv_std": 0.007494530827111077,
+    "average_precision_absolute_delta_from_week2": 0.0,
+    "latency_max_fold_median_ms": 66.89929999993183,
+    "latency_week2_single_model_median_ms": 23.687800000061543,
+    "latency_ratio_cv_max_to_week2_median": 2.8242090865237808,
+    "latency_cap_ms_unchanged": 35.531700000092314,
+    "calibration_passes_frozen_latency_cap": false,
+    "model_size_max_mb": 9.473882,
+    "measurement_mechanics_match_week2": true,
+    "comparability_caveat": "Week 3 source is CV validation and aggregate is max fold median; Week 2 source was one holdout batch for one full-train model. The frozen cap is not changed."
+  },
+  "measurement_protocol": {
+    "includes": "pipeline preprocessing + predict_proba",
+    "batch_size": 1000,
+    "warmup_runs": 2,
+    "repeats": 7,
+    "thread_limit": 1,
+    "hpo_data_source": "each CV validation fold; no holdout",
+    "hpo_latency_aggregation": "max_of_fold_medians",
+    "hpo_model_size_aggregation": "max_of_fold_sizes",
+    "comparability_caveat": "Measurement mechanics match baseline, but HPO uses CV validation folds and a conservative max across folds whereas baseline used one final model and one holdout batch."
+  },
+  "studies": {
+    "random": {
+      "study_name": "bank_rf_pilot_random_seed42",
+      "storage": "random_seed42.db",
+      "attempted": 3
+    },
+    "tpe": {
+      "study_name": "bank_rf_pilot_tpe_seed42",
+      "storage": "tpe_seed42.db",
+      "attempted": 3
+    }
+  },
+  "result_summary": {
+    "attempted": 6,
+    "completed": 6,
+    "failed": 0,
+    "feasible": 5,
+    "pareto_points": 3,
+    "by_sampler": {
+      "random": {
+        "attempted": 3,
+        "completed": 3,
+        "failed": 0,
+        "feasible": 2,
+        "runtime_seconds": 92.98227800000001
+      },
+      "tpe": {
+        "attempted": 3,
+        "completed": 3,
+        "failed": 0,
+        "feasible": 3,
+        "runtime_seconds": 82.95382799999999
+      }
+    }
+  },
+  "scenario_candidates": {
+    "quality_first": {
+      "sampler": "random",
+      "trial_number": 1,
+      "average_precision_cv_mean": 0.4458863530449377,
+      "latency_per_1000_samples_ms": 26.85139999994135,
+      "model_size_max_mb": 5.952813
+    },
+    "speed_first": {
+      "sampler": "random",
+      "trial_number": 2,
+      "average_precision_cv_mean": 0.41533870440092063,
+      "latency_per_1000_samples_ms": 8.35940000069968,
+      "model_size_max_mb": 0.549682
+    },
+    "balanced_normalized": {
+      "sampler": "tpe",
+      "trial_number": 0,
+      "average_precision_cv_mean": 0.443202496805786,
+      "latency_per_1000_samples_ms": 22.18460000040068,
+      "model_size_max_mb": 4.547198
+    }
+  },
+  "latency_reproducibility": {
+    "purpose": "Repeated identical startup configurations expose timing reproducibility only.",
+    "matched_configurations": 3,
+    "comparisons": [
+      {
+        "parameters": {
+          "n_estimators": 100,
+          "max_depth": 7,
+          "min_samples_leaf": 4,
+          "max_features": 0.7148538589793427,
+          "class_weight": "balanced_subsample"
+        },
+        "observations": [
+          {
+            "sampler": "random",
+            "trial_number": 2,
+            "latency_ms": 8.35940000069968
+          },
+          {
+            "sampler": "tpe",
+            "trial_number": 2,
+            "latency_ms": 15.670700000555371
+          }
+        ],
+        "absolute_range_ms": 7.311299999855692,
+        "relative_range_over_median": 0.60851182470933
+      },
+      {
+        "parameters": {
+          "n_estimators": 150,
+          "max_depth": 23,
+          "min_samples_leaf": 9,
+          "max_features": 0.759195090518222,
+          "class_weight": null
+        },
+        "observations": [
+          {
+            "sampler": "random",
+            "trial_number": 0,
+            "latency_ms": 60.092900000199734
+          },
+          {
+            "sampler": "tpe",
+            "trial_number": 0,
+            "latency_ms": 22.18460000040068
+          }
+        ],
+        "absolute_range_ms": 37.908299999799056,
+        "relative_range_over_median": 0.921474279104796
+      },
+      {
+        "parameters": {
+          "n_estimators": 275,
+          "max_depth": 16,
+          "min_samples_leaf": 9,
+          "max_features": 0.41235069657748147,
+          "class_weight": null
+        },
+        "observations": [
+          {
+            "sampler": "random",
+            "trial_number": 1,
+            "latency_ms": 26.85139999994135
+          },
+          {
+            "sampler": "tpe",
+            "trial_number": 1,
+            "latency_ms": 28.10620000036579
+          }
+        ],
+        "absolute_range_ms": 1.2548000004244386,
+        "relative_range_over_median": 0.0456642939436011
+      }
+    ],
+    "max_relative_range_over_median": 0.921474279104796
+  },
+  "full_run_readiness": {
+    "status": "BLOCKED_PENDING_PROTOCOL_APPROVAL_AND_TIMING_STABILIZATION",
+    "reason": "Identical pilot configurations showed material latency variation; CV max-fold aggregation also differs from the Week 2 single-model protocol.",
+    "diagnostic_relative_range_warning_threshold": 0.2
+  },
+  "git": {
+    "commit": "3b64a83413475160a26f693369cabdc5e77940f0",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.11.15",
+    "os": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpu_count": 24,
+    "packages": {
+      "joblib": "1.4.2",
+      "matplotlib": "3.9.4",
+      "numpy": "1.26.4",
+      "optuna": "4.9.0",
+      "pandas": "2.2.3",
+      "PyYAML": "6.0.2",
+      "scikit-learn": "1.5.2",
+      "scipy": "1.14.1",
+      "SQLAlchemy": "2.1.5",
+      "threadpoolctl": "3.5.0"
+    },
+    "threadpools_detected": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 24,
+        "prefix": "libopenblas",
+        "version": "0.3.23.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Prescott"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 24,
+        "prefix": "vcomp",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 24,
+        "prefix": "libscipy_openblas",
+        "version": "0.3.27.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ]
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "protocol_version": "ap_model_size_v1",
+  "protocol_status": "APPROVED_FOR_SMOKE_ONLY",
+  "timestamp_utc": "2026-10-20T06:13:16.322286+00:00",
+  "wall_time_seconds_this_invocation": 0.7849798000006558,
+  "initial_smoke_wall_time_seconds": 283.2644117,
+  "protocol_fingerprint": "4abd437ecfd7507e3b2698b2c85c7c8f90ea3bab9956e120e5f9f3a048cf4195",
+  "objectives": {
+    "names": [
+      "average_precision_cv_mean",
+      "model_size_max_mb"
+    ],
+    "directions": [
+      "maximize",
+      "minimize"
+    ],
+    "latency_used": false
+  },
+  "dataset_sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+  "dataset_expected_shape": [
+    45211,
+    17
+  ],
+  "split_artifact_sha256": "583acb9dbb4ee92852b1d0a9b584cffb2f7b1fc6409dfdb495a46df4cb3d7d1a",
+  "train_indices_sha256": "b078ac348228f8e49c30af463dc1198fb5e8e11d6379e5d842caf580fc728469",
+  "training_samples": 36168,
+  "holdout_policy": {
+    "holdout_rows_materialized": false,
+    "holdout_labels_read_for_optimization": false,
+    "holdout_metrics_read_or_written": false
+  },
+  "feature_columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "duration_excluded": true,
+  "cv_fold_artifact": {
+    "path": "results/hpo/cv_folds_seed42.npz",
+    "sha256": "149fca7f07d85b8afabde2ed23c1eba22927d16c30b506b3b6ba1902c000b769",
+    "folds": [
+      {
+        "fold": 1,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "7a90c624fd48b53712d8a6ba44f092b0c702cc4da93c18d1fb6e70355e4ac52c",
+        "validation_positions_sha256": "447f0d9fe45d59fc224972c08b38e37e00ddbb97566084caa99c90ed12aa51ff",
+        "fit_original_indices_sha256": "9a2a44f01af37282c4671a659c6d534e4a1360ae4e7d658d3ca4c64ca045469f",
+        "validation_original_indices_sha256": "a07a8372a6293af805d565e6f300c52db0980ef6573329d57cbf6f76562120e0"
+      },
+      {
+        "fold": 2,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "977e2f4db0efc4db3ce3e2549609ca83b0228a5510e6038d0fa0064ec39f2371",
+        "validation_positions_sha256": "0c0f25b924acc7f4dca6e9970a5b17b3c282974d78427a4da03539429edbf75a",
+        "fit_original_indices_sha256": "76858ccc99a6412678e7a786a4162b62503e83e4df99099b6ed054e774b764d4",
+        "validation_original_indices_sha256": "9c282d447a574cfe36bf1bd3610b6d03fbccc7fd70e706a997caebf3d1e16e7a"
+      },
+      {
+        "fold": 3,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "881a880bb1c9ad24968a736ca17d42e5e729347529e1ad5a3875f916b321f13e",
+        "validation_positions_sha256": "b0b7a012e1a492e50d1a0794003b29edd2b7977d1fb01d9e961bd4869fad8b7b",
+        "fit_original_indices_sha256": "684d9ad80448f6e0f3ccc173f91df3def9b78a80ce52a48a2851059411a3d7b7",
+        "validation_original_indices_sha256": "591d5aacaa03c97ade6b66278668831c217878460fbfc8ddf1317098a2c4110f"
+      }
+    ]
+  },
+  "serialization": {
+    "format": "joblib",
+    "compression": 3,
+    "artifact_scope": "complete_fitted_preprocess_plus_model_pipeline",
+    "objective_unit": "decimal_MB_bytes_divided_by_1000000",
+    "aggregation": "maximum_across_three_cv_folds",
+    "repeat_check": true
+  },
+  "constraint": {
+    "definition": "g_size = model_size_max_mb - 50.0; feasible iff g_size <= 0",
+    "model_size_cap_mb_decimal": 50.0,
+    "latency_used": false,
+    "completed": 6,
+    "feasible": 6,
+    "infeasible": 0,
+    "failed": 0
+  },
+  "studies": {
+    "random": {
+      "study_name": "bank_rf_ap_model_size_v1_smoke_random_seed42",
+      "storage_file": "random_seed42_ap_model_size_v1.db",
+      "attempted_trials": 3,
+      "wall_seconds_this_invocation": 0.05035180000049877,
+      "wall_seconds_initial_execution": 141.88917410000067,
+      "trial_runtime_seconds_sum": 141.073834,
+      "resume_no_add_verified": true
+    },
+    "tpe": {
+      "study_name": "bank_rf_ap_model_size_v1_smoke_tpe_seed42",
+      "storage_file": "tpe_seed42_ap_model_size_v1.db",
+      "attempted_trials": 3,
+      "wall_seconds_this_invocation": 0.042523499998424086,
+      "wall_seconds_initial_execution": 141.06611060000068,
+      "trial_runtime_seconds_sum": 140.472039,
+      "resume_no_add_verified": true
+    }
+  },
+  "pareto_points": 6,
+  "integrity": {
+    "old_artifacts_unchanged": true,
+    "files_checked": 64,
+    "snapshot_before_sha256": "15b90e2f05d6028c8b94a1678017e1a65a7fc762b150a84f9de1bb5e7b8bff1a",
+    "snapshot_after_sha256": "15b90e2f05d6028c8b94a1678017e1a65a7fc762b150a84f9de1bb5e7b8bff1a"
+  },
+  "artifacts": {
+    "protocol_snapshot.json": {
+      "sha256": "6a567de56de0d79ec1f24a5560110973fa4b2d447d67e9f2bec57d789373c0bf",
+      "bytes": 4915
+    },
+    "trial_history.csv": {
+      "sha256": "15c177ba96af3880f9a56d354c511088cc893ab45b371c53ea27dc2949911ca1",
+      "bytes": 3970
+    },
+    "trial_history.json": {
+      "sha256": "02b1cb3612d0f53e868b80eb4013880da846af69781c1440a6fc84989d4d06a8",
+      "bytes": 8099
+    },
+    "fold_metrics.csv": {
+      "sha256": "167887d466ed604970c6adb5d9820a1dc9717968f55352cc702032c6e38630da",
+      "bytes": 10812
+    },
+    "pareto_front.csv": {
+      "sha256": "aa0d02f27cc79cfc8116201fb6a67ebea0975e1ab2e3c3bbeaadd4b1bd26c5b6",
+      "bytes": 3970
+    },
+    "constraint_summary.json": {
+      "sha256": "23029e36c0a7160dc8fb8166785e99cca4b24df5cd67112187878572abba0103",
+      "bytes": 222
+    },
+    "acceptance_summary.json": {
+      "sha256": "903fa7e273dbda9c3cececa5bd9321e5c0c7ac48ef9ce0028963e46d7e6f2cbc",
+      "bytes": 1333
+    }
+  },
+  "implementation_source_sha256": {
+    "src/optimize_ap_model_size.py": "645c274e3c455a3579375104fb5edd756a30e752726fc06c0ae7535dc0e1d104",
+    "src/pipeline.py": "4ac1b5ff19c2503aadad858c4911231c4c21ac8c5eadc9cc7a8fff6654516aa6",
+    "src/pareto.py": "86b220f28493f2e0ce25f167705039172289a51fa108ce01c3bf7bb566c9ca70",
+    "configs/hpo_ap_model_size_v1.yaml": "04cd1991fec5cbc0833b68faa1016a93495b168267c4d25feacf00ec61309a93"
+  },
+  "acceptance": {
+    "protocol_version": "ap_model_size_v1",
+    "scope": "smoke_3_plus_3_only",
+    "status": "PASS",
+    "checks": {
+      "exactly_three_trials_per_sampler": true,
+      "all_trials_complete": true,
+      "all_trials_feasible": true,
+      "three_fold_rows_per_trial": true,
+      "repeat_serialization_exact": true,
+      "paired_duplicate_results_exact": true,
+      "latency_excluded": true,
+      "old_artifacts_unchanged": true,
+      "resume_does_not_add_trials_at_budget": true,
+      "ap_latency_runner_still_blocked": true,
+      "full_ap_model_size_run_still_blocked": true
+    },
+    "paired_duplicate_checks": [
+      {
+        "config_hash": "114e7ccecdee",
+        "observations": 2,
+        "samplers": [
+          "random",
+          "tpe"
+        ],
+        "ap_and_fold_sizes_exact": true
+      },
+      {
+        "config_hash": "5107cee7dd58",
+        "observations": 2,
+        "samplers": [
+          "random",
+          "tpe"
+        ],
+        "ap_and_fold_sizes_exact": true
+      },
+      {
+        "config_hash": "b4e97ab5ded9",
+        "observations": 2,
+        "samplers": [
+          "random",
+          "tpe"
+        ],
+        "ap_and_fold_sizes_exact": true
+      }
+    ],
+    "tpe_interpretation": "Implementation smoke only: all three TPE trials are within n_startup_trials=10.",
+    "full_run_status": "BLOCKED_PENDING_USER_ACCEPTANCE"
+  },
+  "full_run": {
+    "status": "BLOCKED_PENDING_USER_ACCEPTANCE",
+    "configured_trials_per_sampler": 40,
+    "executed": false
+  },
+  "git": {
+    "commit": "3b64a83413475160a26f693369cabdc5e77940f0",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.11.15",
+    "os": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpu_count": 24,
+    "packages": {
+      "joblib": "1.4.2",
+      "numpy": "1.26.4",
+      "optuna": "4.9.0",
+      "pandas": "2.2.3",
+      "PyYAML": "6.0.2",
+      "scikit-learn": "1.5.2",
+      "scipy": "1.14.1",
+      "SQLAlchemy": "2.1.5",
+      "threadpoolctl": "3.5.0"
+    },
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 24,
+        "prefix": "libopenblas",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\numpy.libs\\libopenblas64__v0.3.23-293-gc2f4bdbb-gcc_10_3_0-2bde3a66a51006b2b53eb373ff767a3f.dll",
+        "version": "0.3.23.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Prescott"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 24,
+        "prefix": "vcomp",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 24,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-5b1ec8b915dfb81d11cebc0788069d2d.dll",
+        "version": "0.3.27.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ]
+  }
+}

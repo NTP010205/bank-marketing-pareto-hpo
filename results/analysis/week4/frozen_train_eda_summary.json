@@ -1,0 +1,33 @@
+{
+  "scope": "frozen_training_rows_only",
+  "rows": 36168,
+  "columns_materialized": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome",
+    "y"
+  ],
+  "duration_materialized": false,
+  "target_counts": {
+    "no": 31937,
+    "yes": 4231
+  },
+  "positive_rate": 0.11698186241981863,
+  "missing_cells": 0,
+  "duplicate_rows_within_train": 10,
+  "numeric_feature_count": 6,
+  "categorical_feature_count": 9,
+  "interpretation_policy": "Descriptive train-only EDA; it cannot alter the locked model, features, search space, selected configuration, or constraints."
+}

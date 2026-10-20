@@ -1,8 +1,8 @@
 # Bank Marketing Pareto HPO
 
-Dự án nghiên cứu cá nhân về tối ưu đa mục tiêu cho bài toán dự đoán khách hàng đăng ký tiền gửi có kỳ hạn. Phạm vi hiện tại chỉ gồm **Tuần 1–2**: repository tái lập được, kiểm định dữ liệu và baseline Random Forest. Chưa chạy Random Search hay Optuna/TPE.
+Dự án nghiên cứu cá nhân về tối ưu đa mục tiêu cho bài toán dự đoán khách hàng đăng ký tiền gửi có kỳ hạn. Tuần 1–2 thiết lập protocol và leakage-safe baseline; Tuần 3 hoàn thành fresh AP–model-size HPO 40 Random + 40 TPE; Tuần 4 cung cấp notebooks, bảng và hình phân tích tái lập từ logs chính thức.
 
-> **English short summary:** A reproducible Week 1–2 research scaffold for the UCI Bank Marketing binary-classification task. It audits the exact `bank-full.csv`, protects a stratified 20% test set, evaluates a leakage-safe Random Forest baseline with 3-fold CV, and records quality, latency, size, environment, and split provenance. Multi-objective HPO is deliberately deferred.
+> **English short summary:** A reproducible Bank Marketing study with a leakage-safe baseline and an official train-only 40+40 multi-objective experiment. Random Search and TPE maximize mean 3-fold CV Average Precision while minimizing maximum-fold compressed pipeline size. Week 4 derives audited tables, Pareto analysis and publication-ready figures without retraining or reading the holdout.
 
 ## Problem
 
@@ -13,11 +13,12 @@ Dự đoán biến nhị phân `y` (`yes`/`no`) từ thông tin có thể dùng 
 ## Formulation
 
 - Tuần 2: baseline cố định, tối đa hóa Average Precision (AP); báo thêm ROC-AUC, F1, precision và recall tại threshold `0.5`.
-- Tuần 3 (chỉ là protocol): minimize `(-AP_CV, latency_per_1000_samples)`.
-- Ràng buộc đã đăng ký trước: model artifact không quá `50 MB`; latency không quá `1.5 ×` baseline đo thật.
-- Nếu không có cấu hình khả thi, phải ghi log và giữ nguyên ràng buộc.
+- Official AP–model-size v1: maximize mean 3-fold CV AP và minimize maximum serialized fitted-pipeline size qua ba folds.
+- Ràng buộc: `max_fold_size_mb - 50.0 <= 0`, với decimal MB và Joblib compression 3.
+- Latency không tham gia objective, feasibility, Pareto hoặc tie-breaking vì calibration v1/v2 không đạt stability gate.
+- Holdout không được dùng cho HPO, Pareto, near-best selection hoặc Week 4 analysis.
 
-Search space và toàn bộ protocol được khóa trong [experiment.yaml](configs/experiment.yaml). Random Search và TPE dự kiến mỗi phương pháp 40 trials, cùng domain và folds, nhưng **chưa được triển khai/chạy**.
+Search space gốc nằm trong [experiment.yaml](configs/experiment.yaml); protocol chính thức, study isolation, budget và selection rule nằm trong [hpo_ap_model_size_v1.yaml](configs/hpo_ap_model_size_v1.yaml). Full `40+40` đã hoàn thành trong namespace `results/hpo/ap_model_size_v1/full_run_01/`.
 
 ## Dataset attribution and license
 
@@ -35,6 +36,32 @@ Chỉ dùng `bank-full.csv` với delimiter `;`, shape kỳ vọng `(45211, 17)`
 - AP và ROC-AUC dùng `predict_proba`; threshold `0.5` chỉ dùng cho F1/precision/recall.
 - Latency gồm preprocessing + `predict_proba`, 2 warm-ups, 7 repeats, batch 1000, giới hạn một thread; báo median/std/IQR.
 - Kích thước model là kích thước file Joblib nén mức 3, không phải RAM.
+
+### Official AP–model-size HPO
+
+- Random Search: `optuna.samplers.RandomSampler(seed=42)`.
+- TPE: Optuna 4.9.0 `TPESampler(seed=42, n_startup_trials=10, constraints_func=...)` với objectives native `maximize AP`, `minimize serialized size`.
+- Random và TPE đều hoàn thành đúng 40 trials; 10 startup configurations trùng nhau do dùng cùng seed.
+- Mỗi trial dùng đúng training partition và ba CV folds cố định. Holdout không được materialize thành `X_test/y_test` trong HPO.
+- Mỗi fitted preprocessing-plus-estimator pipeline được serialize bằng Joblib compression 3; objective size là maximum decimal MB qua ba folds.
+- SQLite cho pilot/full tách biệt và bị Git-ignore. Chạy lại cùng target sẽ resume mà không thêm trial.
+- Chỉ các trial COMPLETE và feasible được đưa vào Pareto. Quy tắc chọn đã khóa giữ các nghiệm trong 0.005 AP của best rồi chọn size nhỏ nhất.
+
+## Key results
+
+| Reference | Mean CV AP ± std | Serialized size |
+|---|---:|---:|
+| Baseline | 0.4148607 ± 0.0074945 | 14.008766 MB full-train |
+| Best Random, trial 31 | 0.4461627 ± 0.0043370 | 4.836080 MB CV max-fold |
+| Best TPE, trial 38 | 0.4461862 ± 0.0045716 | 3.693059 MB CV max-fold |
+| Selected TPE, trial 35 | 0.4434175 ± 0.0054617 | 1.034871 MB CV max-fold |
+| Selected full-train audit | selection based on CV only | 1.289340 MB full-train |
+
+All 80 trials completed and satisfied the 50 MB constraint. There are 70 distinct configurations, 13 distinct Pareto configurations, and 10 cross-sampler startup duplicates. The cap was non-binding: the largest observed CV max-fold size was 13.594303 MB.
+
+The selected configuration is TPE trial 35, hash `4cdd6dd35f1d`. It gives up 0.0027687 absolute CV AP versus the best-AP point and reduces CV max-fold size by 71.978%. This is the registered trade-off decision, not the maximum-AP model.
+
+With one sampler seed, the tiny Random–TPE best-AP difference is descriptive. It does not establish statistical superiority.
 
 ## Experimental Protocol
 
@@ -58,6 +85,36 @@ py -3.11 -m venv .venv
 .\.venv\Scripts\python.exe -m src.benchmark
 ```
 
+Pilot Tuần 3 (lệnh này resume; không nhân đôi nếu đã đủ 3 trials):
+
+```powershell
+.\.venv\Scripts\python.exe -m src.optimize --mode pilot --sampler both --trials 3
+```
+
+Official AP–model-size Full đã được thực hiện và không cần chạy lại để tái tạo
+phân tích. Week 4 chỉ đọc logs hiện có:
+
+```powershell
+.\.venv\Scripts\python.exe .\scripts\build_week4_figures.py
+.\.venv\Scripts\python.exe .\scripts\build_week4_notebooks.py --execute
+```
+
+Outputs nằm trong `results/analysis/week4/`, `figures/week4/` và `notebooks/`.
+Script xác minh CSV/JSON/SQLite, source hashes và figure hashes trước khi phân
+tích. Không model training, HPO hoặc holdout evaluation nào được thực hiện.
+
+Calibration latency train-only, version hóa (không chạy HPO):
+
+```powershell
+.\.venv\Scripts\python.exe -m src.latency_calibration --config configs\latency_calibration_v1.yaml
+```
+
+Đường AP–latency full bên dưới vẫn bị hard-block và chỉ được giữ để minh họa safety gate:
+
+```powershell
+.\.venv\Scripts\python.exe -m src.optimize --mode full --sampler both --trials 40 --confirm-full
+```
+
 Hoặc chạy audit và baseline liên tiếp:
 
 ```powershell
@@ -76,19 +133,25 @@ Các CLI không phụ thuộc current directory là `src`. Có thể override đ
 - Week 1 scaffold, attribution, protocol và dataset audit: implemented.
 - Week 2 leakage-safe baseline, tests và result logging: implemented.
 - Kết quả chạy thật nằm trong `results/data_audit.json` và `results/baseline/` sau khi chạy các lệnh trên; fixture tổng hợp chỉ dành cho tests và không phải kết quả UCI.
-- Week 3–5: chỉ có config/stub/TODO, chưa có HPO hay tuyên bố Pareto.
+- Week 3 AP–latency: pilot/calibration được giữ làm methodological diagnostics; full path vẫn bị block vì timing không ổn định.
+- Week 3 AP–model-size v1: official fresh Full 40 Random + 40 TPE đã hoàn thành, 80/80 COMPLETE và feasible.
+- Pareto chính thức: 13 cấu hình distinct; selected TPE trial 35, `4cdd6dd35f1d`.
+- Latency calibration v1: đã chạy thật, 60 session summaries/900 raw repeats; gate **FAIL** vì baseline fold 3 có relative range 17,13% > 15%, dù không có contention flag hay measurement failure.
+- Week 4: read-only analysis, 5 notebooks, 7 PNG 320 DPI + 7 PDF, source-integrity report và research limitations đã hoàn thành.
+- Holdout không được đọc trong Week 3–4. Không có tuyên bố novelty hoặc TPE superiority.
+- Week 5 chưa bắt đầu và cần nghiệm thu Week 4 trước.
 
 ## Roadmap
 
-1. Tuần 3: chỉ sau khi baseline pass, triển khai Random Search 40 trials và Optuna TPE 40 trials trên cùng CV/search domain.
-2. Tuần 4: áp ràng buộc size/latency đã khóa; phân tích tập khả thi và Pareto front.
-3. Tuần 5: kiểm tra độ bền, tổng hợp bảng/hình và viết báo cáo/paper draft.
+1. Tuần 3: hoàn thành AP–model-size Random Search 40 trials và Optuna TPE 40 trials trên cùng CV/search domain.
+2. Tuần 4: hoàn thành kiểm tra integrity, phân tích tập khả thi/Pareto, notebooks và figures tái lập.
+3. Tuần 5: sau nghiệm thu, tổng hợp báo cáo môn học; mọi multi-seed, multi-model hoặc external-test extension cần protocol riêng.
 
 Xem [paper_roadmap.md](docs/paper_roadmap.md).
 
 ## Limitations
 
-Một dataset lịch sử không chứng minh hiệu quả ngoài phân phối hay tính công bằng. `unknown` là category được báo cáo, không tự động xem là missing. Các biến liên quan lịch gọi cần kiểm tra availability theo hệ thống triển khai. Latency phụ thuộc phần cứng, phiên bản thư viện, nhiệt độ hệ thống và workload; số đo hiện tại chỉ là benchmark cục bộ có metadata.
+Một dataset và một sampler seed không chứng minh hiệu quả ngoài phân phối hay TPE superiority. CV fold standard deviation không thay thế phương sai giữa independent search runs. Holdout đã được xem ở Week 2 nên paper-quality final estimate cần external/temporal test mới. Joblib size phụ thuộc phiên bản và không đại diện cho latency, RAM hoặc energy. Cap 50 MB không binding. `unknown` là category được báo cáo, không tự động xem là missing. Chi tiết tại [week4_research_limitations.md](docs/week4_research_limitations.md).
 
 ## AI assistance
 

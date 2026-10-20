@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "execution_environment": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Scripts\\python.exe",
+  "executed": true,
+  "notebooks": [
+    {
+      "file": "notebooks\\01_Dataset_EDA.ipynb",
+      "status": "PASS",
+      "sha256": "19db8b01b81d93e2cb1d4f20f871f985bec77af7ebd51222259938b31be9c055",
+      "code_cells": 4,
+      "markdown_cells": 4,
+      "captured_stdout_characters": 1971
+    },
+    {
+      "file": "notebooks\\02_Baseline_Analysis.ipynb",
+      "status": "PASS",
+      "sha256": "13282e0634a4dec38482d3e0c1ddc896c7bf85ae1820f050c47f19f07f994a67",
+      "code_cells": 4,
+      "markdown_cells": 2,
+      "captured_stdout_characters": 1097
+    },
+    {
+      "file": "notebooks\\03_HPO_Comparison.ipynb",
+      "status": "PASS",
+      "sha256": "3660af15583e92024c4b3bcaa64d889f587a0bd82fea4eaeb87ada1003238ba0",
+      "code_cells": 2,
+      "markdown_cells": 3,
+      "captured_stdout_characters": 1261
+    },
+    {
+      "file": "notebooks\\04_Pareto_Analysis.ipynb",
+      "status": "PASS",
+      "sha256": "b5ae9b2f5208526ded03be63abfe176664c445d8a0866b3b2b454da6abd32a6e",
+      "code_cells": 2,
+      "markdown_cells": 3,
+      "captured_stdout_characters": 3508
+    },
+    {
+      "file": "notebooks\\05_Research_Summary.ipynb",
+      "status": "PASS",
+      "sha256": "f47c3999a06decb03b6f7bac7633c6b5160c4ec9d5e958783bd6905c2aa68f6e",
+      "code_cells": 2,
+      "markdown_cells": 2,
+      "captured_stdout_characters": 1744
+    }
+  ],
+  "holdout_used": false,
+  "training_performed": false,
+  "hpo_performed": false
+}

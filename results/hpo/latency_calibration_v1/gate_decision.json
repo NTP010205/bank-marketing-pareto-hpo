@@ -1,0 +1,21 @@
+{
+  "status": "FAIL",
+  "full_run_blocked": true,
+  "criterion": "Every config/fold relative range across session medians <= 15.00%, one shared batch, no failures, no major contention.",
+  "criterion_is_engineering_gate_not_confidence_guarantee": true,
+  "observed_batch_hashes": [
+    "71f19d4ef3cb78ab6c087bf9befd61f14fa4fc52c5636ae70da42648a22bb630"
+  ],
+  "maximum_observed_session_median_relative_range": 0.1712612040512555,
+  "unstable_config_folds": [
+    {
+      "config_id": "f8d997bc1901",
+      "fold": 3,
+      "session_median_relative_range": 0.1712612041
+    }
+  ],
+  "failure_reasons": [
+    "one or more config/fold session ranges exceed the stability criterion"
+  ],
+  "cap_approval_required_even_if_stability_passes": true
+}

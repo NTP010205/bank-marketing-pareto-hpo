@@ -1,0 +1,97 @@
+{
+  "configurations": {
+    "f8d997bc1901": {
+      "label": "week2_baseline_rf",
+      "source": "frozen_week2_baseline_config",
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": null,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt",
+        "class_weight": null,
+        "random_state": 42,
+        "n_jobs": 1
+      }
+    },
+    "114e7ccecdee": {
+      "label": "pilot_114e7ccecdee",
+      "source": "historical_pilot",
+      "parameters": {
+        "n_estimators": 150,
+        "max_depth": 23,
+        "min_samples_leaf": 9,
+        "max_features": 0.759195090518222,
+        "class_weight": null
+      }
+    },
+    "48e74e2e02b3": {
+      "label": "pilot_48e74e2e02b3",
+      "source": "historical_pilot",
+      "parameters": {
+        "n_estimators": 275,
+        "max_depth": 16,
+        "min_samples_leaf": 9,
+        "max_features": 0.4123506965774814,
+        "class_weight": null
+      }
+    },
+    "5107cee7dd58": {
+      "label": "pilot_5107cee7dd58",
+      "source": "historical_pilot",
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 7,
+        "min_samples_leaf": 4,
+        "max_features": 0.7148538589793427,
+        "class_weight": "balanced_subsample"
+      }
+    }
+  },
+  "historical_paired_latency_audit": [
+    {
+      "config_id": "114e7ccecdee",
+      "parameters": {
+        "n_estimators": 150,
+        "max_depth": 23,
+        "min_samples_leaf": 9,
+        "max_features": 0.759195090518222,
+        "class_weight": null
+      },
+      "historical_latencies_ms_per_1000": [
+        60.09290000019973,
+        22.18460000040068
+      ],
+      "relative_range_over_mean": 0.9214742791047957
+    },
+    {
+      "config_id": "48e74e2e02b3",
+      "parameters": {
+        "n_estimators": 275,
+        "max_depth": 16,
+        "min_samples_leaf": 9,
+        "max_features": 0.4123506965774814,
+        "class_weight": null
+      },
+      "historical_latencies_ms_per_1000": [
+        26.85139999994135,
+        28.10620000036579
+      ],
+      "relative_range_over_mean": 0.0456642939436011
+    },
+    {
+      "config_id": "5107cee7dd58",
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 7,
+        "min_samples_leaf": 4,
+        "max_features": 0.7148538589793427,
+        "class_weight": "balanced_subsample"
+      },
+      "historical_latencies_ms_per_1000": [
+        8.35940000069968,
+        15.670700000555373
+      ],
+      "relative_range_over_mean": 0.6085118247093301
+    }
+  ]
+}

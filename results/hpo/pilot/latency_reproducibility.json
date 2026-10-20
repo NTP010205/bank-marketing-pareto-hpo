@@ -1,0 +1,76 @@
+{
+  "purpose": "Repeated identical startup configurations expose timing reproducibility only.",
+  "matched_configurations": 3,
+  "comparisons": [
+    {
+      "parameters": {
+        "n_estimators": 100,
+        "max_depth": 7,
+        "min_samples_leaf": 4,
+        "max_features": 0.7148538589793427,
+        "class_weight": "balanced_subsample"
+      },
+      "observations": [
+        {
+          "sampler": "random",
+          "trial_number": 2,
+          "latency_ms": 8.35940000069968
+        },
+        {
+          "sampler": "tpe",
+          "trial_number": 2,
+          "latency_ms": 15.670700000555371
+        }
+      ],
+      "absolute_range_ms": 7.311299999855692,
+      "relative_range_over_median": 0.60851182470933
+    },
+    {
+      "parameters": {
+        "n_estimators": 150,
+        "max_depth": 23,
+        "min_samples_leaf": 9,
+        "max_features": 0.759195090518222,
+        "class_weight": null
+      },
+      "observations": [
+        {
+          "sampler": "random",
+          "trial_number": 0,
+          "latency_ms": 60.092900000199734
+        },
+        {
+          "sampler": "tpe",
+          "trial_number": 0,
+          "latency_ms": 22.18460000040068
+        }
+      ],
+      "absolute_range_ms": 37.908299999799056,
+      "relative_range_over_median": 0.921474279104796
+    },
+    {
+      "parameters": {
+        "n_estimators": 275,
+        "max_depth": 16,
+        "min_samples_leaf": 9,
+        "max_features": 0.41235069657748147,
+        "class_weight": null
+      },
+      "observations": [
+        {
+          "sampler": "random",
+          "trial_number": 1,
+          "latency_ms": 26.85139999994135
+        },
+        {
+          "sampler": "tpe",
+          "trial_number": 1,
+          "latency_ms": 28.10620000036579
+        }
+      ],
+      "absolute_range_ms": 1.2548000004244386,
+      "relative_range_over_median": 0.0456642939436011
+    }
+  ],
+  "max_relative_range_over_median": 0.921474279104796
+}

@@ -1,0 +1,169 @@
+{
+  "run_orders": [
+    {
+      "fold": 1,
+      "session": 1,
+      "order_seed": 421032,
+      "configuration_order": [
+        "f8d997bc1901",
+        "114e7ccecdee",
+        "5107cee7dd58",
+        "48e74e2e02b3"
+      ]
+    },
+    {
+      "fold": 1,
+      "session": 2,
+      "order_seed": 421033,
+      "configuration_order": [
+        "f8d997bc1901",
+        "48e74e2e02b3",
+        "114e7ccecdee",
+        "5107cee7dd58"
+      ]
+    },
+    {
+      "fold": 1,
+      "session": 3,
+      "order_seed": 421034,
+      "configuration_order": [
+        "48e74e2e02b3",
+        "f8d997bc1901",
+        "5107cee7dd58",
+        "114e7ccecdee"
+      ]
+    },
+    {
+      "fold": 1,
+      "session": 4,
+      "order_seed": 421035,
+      "configuration_order": [
+        "5107cee7dd58",
+        "f8d997bc1901",
+        "114e7ccecdee",
+        "48e74e2e02b3"
+      ]
+    },
+    {
+      "fold": 1,
+      "session": 5,
+      "order_seed": 421036,
+      "configuration_order": [
+        "f8d997bc1901",
+        "114e7ccecdee",
+        "48e74e2e02b3",
+        "5107cee7dd58"
+      ]
+    },
+    {
+      "fold": 2,
+      "session": 1,
+      "order_seed": 422032,
+      "configuration_order": [
+        "f8d997bc1901",
+        "5107cee7dd58",
+        "48e74e2e02b3",
+        "114e7ccecdee"
+      ]
+    },
+    {
+      "fold": 2,
+      "session": 2,
+      "order_seed": 422033,
+      "configuration_order": [
+        "48e74e2e02b3",
+        "f8d997bc1901",
+        "5107cee7dd58",
+        "114e7ccecdee"
+      ]
+    },
+    {
+      "fold": 2,
+      "session": 3,
+      "order_seed": 422034,
+      "configuration_order": [
+        "f8d997bc1901",
+        "5107cee7dd58",
+        "48e74e2e02b3",
+        "114e7ccecdee"
+      ]
+    },
+    {
+      "fold": 2,
+      "session": 4,
+      "order_seed": 422035,
+      "configuration_order": [
+        "114e7ccecdee",
+        "5107cee7dd58",
+        "48e74e2e02b3",
+        "f8d997bc1901"
+      ]
+    },
+    {
+      "fold": 2,
+      "session": 5,
+      "order_seed": 422036,
+      "configuration_order": [
+        "48e74e2e02b3",
+        "f8d997bc1901",
+        "114e7ccecdee",
+        "5107cee7dd58"
+      ]
+    },
+    {
+      "fold": 3,
+      "session": 1,
+      "order_seed": 423032,
+      "configuration_order": [
+        "48e74e2e02b3",
+        "5107cee7dd58",
+        "114e7ccecdee",
+        "f8d997bc1901"
+      ]
+    },
+    {
+      "fold": 3,
+      "session": 2,
+      "order_seed": 423033,
+      "configuration_order": [
+        "48e74e2e02b3",
+        "5107cee7dd58",
+        "114e7ccecdee",
+        "f8d997bc1901"
+      ]
+    },
+    {
+      "fold": 3,
+      "session": 3,
+      "order_seed": 423034,
+      "configuration_order": [
+        "5107cee7dd58",
+        "f8d997bc1901",
+        "48e74e2e02b3",
+        "114e7ccecdee"
+      ]
+    },
+    {
+      "fold": 3,
+      "session": 4,
+      "order_seed": 423035,
+      "configuration_order": [
+        "5107cee7dd58",
+        "f8d997bc1901",
+        "48e74e2e02b3",
+        "114e7ccecdee"
+      ]
+    },
+    {
+      "fold": 3,
+      "session": 5,
+      "order_seed": 423036,
+      "configuration_order": [
+        "5107cee7dd58",
+        "48e74e2e02b3",
+        "114e7ccecdee",
+        "f8d997bc1901"
+      ]
+    }
+  ]
+}

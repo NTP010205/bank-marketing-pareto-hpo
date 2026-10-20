@@ -9,13 +9,13 @@
 - Quality, timing, model artifact, hardware, and provenance outputs.
 - Unit/integration tests using synthetic fixtures only.
 
-## Week 3 — controlled search (TODO)
+## Week 3 — controlled search (pilot complete; full TODO)
 
-Implement Random Search and Optuna TPE only after baseline tests and real-data run pass. Each gets exactly 40 trials, the same five-dimensional domain, identical precomputed folds, and consistent timing protocol. Persist trial-level parameters, fold metrics, failures, constraints, package versions, and study storage. Do not use the holdout.
+Random Search and constrained multi-objective Optuna TPE are implemented with identical precomputed folds, domain and persistent storage. A real 3+3 pilot is complete; the 40+40 budget remains unrun. Resolve timing reproducibility and approve the conservative max-fold aggregation before full execution. Do not use the holdout.
 
 ## Week 4 — Pareto and robustness (TODO)
 
-Apply the frozen 50 MB and `1.5 × baseline latency` constraints. Report infeasibility without changing limits. Compute non-dominated feasible configurations, repeat timing robustly, examine seed sensitivity, and perform the planned feature-availability sensitivity check without selecting from test outcomes.
+Apply the frozen 50 MB constraint and the explicitly approved interpretation of the unchanged 35.5317 ms latency cap. Until approval, do not call that number a like-for-like `1.5 ×` calibrated CV baseline. Report infeasibility without changing limits. Compute non-dominated feasible configurations, repeat timing robustly, examine seed sensitivity, and perform the planned feature-availability sensitivity check without selecting from test outcomes.
 
 ## Week 5 — reporting (TODO)
 

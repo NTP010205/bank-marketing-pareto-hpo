@@ -1,0 +1,49 @@
+{
+  "protocol_version": "ap_model_size_v1",
+  "scope": "smoke_3_plus_3_only",
+  "status": "PASS",
+  "checks": {
+    "exactly_three_trials_per_sampler": true,
+    "all_trials_complete": true,
+    "all_trials_feasible": true,
+    "three_fold_rows_per_trial": true,
+    "repeat_serialization_exact": true,
+    "paired_duplicate_results_exact": true,
+    "latency_excluded": true,
+    "old_artifacts_unchanged": true,
+    "resume_does_not_add_trials_at_budget": true,
+    "ap_latency_runner_still_blocked": true,
+    "full_ap_model_size_run_still_blocked": true
+  },
+  "paired_duplicate_checks": [
+    {
+      "config_hash": "114e7ccecdee",
+      "observations": 2,
+      "samplers": [
+        "random",
+        "tpe"
+      ],
+      "ap_and_fold_sizes_exact": true
+    },
+    {
+      "config_hash": "5107cee7dd58",
+      "observations": 2,
+      "samplers": [
+        "random",
+        "tpe"
+      ],
+      "ap_and_fold_sizes_exact": true
+    },
+    {
+      "config_hash": "b4e97ab5ded9",
+      "observations": 2,
+      "samplers": [
+        "random",
+        "tpe"
+      ],
+      "ap_and_fold_sizes_exact": true
+    }
+  ],
+  "tpe_interpretation": "Implementation smoke only: all three TPE trials are within n_startup_trials=10.",
+  "full_run_status": "BLOCKED_PENDING_USER_ACCEPTANCE"
+}

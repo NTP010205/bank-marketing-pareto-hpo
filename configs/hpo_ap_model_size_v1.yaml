@@ -1,0 +1,91 @@
+protocol_version: ap_model_size_v1
+status: approved_for_full_run_01
+approval_date: "2026-10-20"
+full_approval_date: "2026-10-20"
+base_config: configs/experiment.yaml
+data_path: data/raw/bank-full.csv
+data_audit_reference: results/data_audit.json
+split_indices_reference: results/baseline/split_indices.npz
+cv_folds_reference: results/hpo/cv_folds_seed42.npz
+output_root: results/hpo/ap_model_size_v1
+
+seed: 42
+samplers: [random, tpe]
+directions: [maximize, minimize]
+objective_names: [average_precision_cv_mean, model_size_max_mb]
+
+aggregation:
+  average_precision: mean_of_three_validation_folds
+  model_size: max_of_three_fold_serialized_pipeline_sizes
+
+constraints:
+  model_size_cap_mb_decimal: 50.0
+  feasibility_rule: g_le_zero
+  latency_used: false
+
+serialization:
+  format: joblib
+  compression: 3
+  include_complete_pipeline: true
+  repeat_serialization_check_in_smoke: true
+
+smoke:
+  trials_per_sampler: 3
+  maximum_trials_per_sampler: 3
+  storage_subdir: smoke
+  study_version: ap_model_size_v1_smoke
+  approved: true
+
+full:
+  trials_per_sampler: 40
+  storage_subdir: full_run_01
+  study_version: ap_model_size_v1_full_run_01
+  full_run_blocked: false
+  requires_explicit_post_smoke_approval: true
+  explicit_approval_recorded: true
+  require_confirm_flag: true
+  fresh_studies_required: true
+
+tpe:
+  n_startup_trials: 10
+
+execution:
+  optuna_n_jobs: 1
+  estimator_n_jobs: 1
+  thread_limit: 1
+  keep_trial_models: false
+
+selection:
+  best_ap_tolerance_absolute: 0.005
+  eligibility: completed_feasible_only
+  primary_rule:
+    - highest_feasible_cv_ap
+    - retain_within_absolute_ap_tolerance
+    - smallest_model_size_max_bytes
+  tie_break_order:
+    - average_precision_cv_mean_desc
+    - average_precision_cv_std_asc
+    - config_hash_asc
+    - sampler_order_random_then_tpe
+    - trial_number_asc
+  full_train_size_audit:
+    required: true
+    cap_mb_decimal: 50.0
+    fallback: next_ranked_distinct_config_within_same_ap_tolerance_set
+    do_not_expand_ap_tolerance: true
+
+reporting:
+  comparison_budgets: [10, 20, 40]
+  figures:
+    - best_feasible_ap_vs_trial.png
+    - ap_vs_model_size_pareto.png
+    - random_vs_tpe_comparison.png
+    - trial_size_distribution.png
+    - cumulative_evaluation_cost.png
+
+integrity_paths:
+  - results/baseline
+  - results/hpo/pilot
+  - results/hpo/latency_calibration_v1
+  - results/hpo/latency_calibration_v2
+  - results/hpo/ap_model_size_v1/smoke

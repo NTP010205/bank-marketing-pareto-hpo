@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "timestamp_utc": "2026-10-20T16:16:01.964217+00:00",
+  "authorized_scope": "fresh full_run_01 with exactly 40 RandomSampler + 40 TPESampler attempts",
+  "dataset_sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+  "split_artifact_sha256": "583acb9dbb4ee92852b1d0a9b584cffb2f7b1fc6409dfdb495a46df4cb3d7d1a",
+  "train_indices_sha256": "b078ac348228f8e49c30af463dc1198fb5e8e11d6379e5d842caf580fc728469",
+  "cv_fold_artifact_sha256": "149fca7f07d85b8afabde2ed23c1eba22927d16c30b506b3b6ba1902c000b769",
+  "training_samples": 36168,
+  "feature_columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "duration_excluded": true,
+  "holdout_rows_materialized": false,
+  "preprocessing_fit_scope": "new pipeline constructed and fit inside every CV training fold",
+  "serialization_scope": "complete fitted preprocess+model Pipeline",
+  "latency_used": false,
+  "historical_config_hash_audit": {
+    "pilot_sqlite_parameters": {
+      "n_estimators": 275,
+      "max_depth": 16,
+      "min_samples_leaf": 9,
+      "max_features": 0.41235069657748147,
+      "class_weight": null
+    },
+    "smoke_sqlite_parameters": {
+      "n_estimators": 275,
+      "max_depth": 16,
+      "min_samples_leaf": 9,
+      "max_features": 0.41235069657748147,
+      "class_weight": null
+    },
+    "raw_sqlite_parameters_equal": true,
+    "direct_canonical_hash": "b4e97ab5ded9",
+    "historical_csv_roundtrip_parameters": {
+      "n_estimators": 275,
+      "max_depth": 16,
+      "min_samples_leaf": 9,
+      "max_features": 0.4123506965774814,
+      "class_weight": null
+    },
+    "historical_csv_roundtrip_hash": "48e74e2e02b3",
+    "max_features_absolute_delta": 5.551115123125783e-17,
+    "explanation": "48e74e2e02b3 was derived after pandas parsed the pilot CSV and rounded max_features from 0.41235069657748147 to 0.4123506965774814. b4e97ab5ded9 hashes the exact Optuna SQLite parameters directly."
+  },
+  "historical_artifact_file_count": 74,
+  "historical_artifact_snapshot_sha256": "a4a38c6319a99b74890f35f5f1a9bbd7eb238b98b67c5af16b3347c6cfa2030e",
+  "official_namespace_was_fresh_or_valid_resume": true,
+  "pytest": "38 passed before gate opening",
+  "compileall": "PASS",
+  "dependency_check": "31 installed packages compatible",
+  "protocol_fingerprint": "b28c2f93ad8b6c0469a53d253e8699ac626990edcc27e68ccb65ae33dd1cb56c"
+}

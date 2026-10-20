@@ -1,0 +1,79 @@
+protocol_version: latency_calibration_v2
+output_dir: results/hpo/latency_calibration_v2
+data_path: data/raw/bank-full.csv
+base_config: configs/experiment.yaml
+hpo_config: configs/hpo_week3.yaml
+data_audit_reference: results/data_audit.json
+split_indices_reference: results/baseline/split_indices.npz
+cv_folds_reference: results/hpo/cv_folds_seed42.npz
+pilot_history_reference: results/hpo/pilot/trial_history.csv
+v1_reference_dir: results/hpo/latency_calibration_v1
+v1_batch_reference: results/hpo/latency_calibration_v1/benchmark_batch_indices.npz
+baseline_reference_dir: results/baseline
+pilot_reference_dir: results/hpo/pilot
+
+seed: 42
+benchmark_batch:
+  size: 1000
+  deterministic_seed: 20261020
+  source: frozen_training_indices_only
+  labels_used: false
+  require_match_v1_batch: true
+
+diagnostic:
+  scope: baseline_all_three_folds
+  independent_refit_rounds: 2
+  sessions_per_round: 5
+  warmup_calls_per_session: 10
+  timed_repeats_per_session: 20
+  interleave_seed: 420032
+
+timing:
+  independent_refit_rounds: 2
+  sessions_per_round: 5
+  warmup_calls_per_session: 10
+  timed_repeats_per_session: 20
+  timer: perf_counter_ns
+  includes: pipeline_preprocessing_plus_predict_proba
+  thread_limit: 1
+  estimator_n_jobs: 1
+  interleave_seed: 420032
+  interleave_scope: all_configuration_fold_pairs
+  aggregation: median_all_session_medians_per_fold_then_max_across_folds
+  per_round_gate_required: true
+  gc_collect_before_each_measurement_block: true
+  cyclic_gc_disabled_during_measurement_block: true
+  session_pause_seconds: 1.0
+  diagnostic_to_official_settle_seconds: 5.0
+
+environment_control:
+  change_power_plan: false
+  change_process_priority: false
+  change_cpu_affinity: false
+  record_processor_power_information: true
+  record_background_process_snapshots: true
+  record_process_thread_count: true
+
+stability_gate:
+  maximum_session_median_relative_range: 0.15
+  maximum_system_cpu_percent: 80.0
+  minimum_process_cpu_efficiency_percent: 60.0
+  require_single_batch_hash: true
+  require_every_round_pass: true
+  require_prediction_digest_consistency: true
+  full_run_blocked_by_default: true
+
+constraints:
+  latency_cap_ms_per_1000: 35.531700000092314
+  latency_cap_interpretation: fixed_absolute_deployment_target
+  historical_multiplier_claim_for_cv_baseline: false
+  model_size_cap_mb: 50.0
+  change_cap_automatically: false
+
+official_study_plan:
+  output_subdir: official_latency_v1
+  random_trials: 40
+  tpe_trials: 40
+  tpe_startup_trials: 10
+  full_run_blocked: true
+

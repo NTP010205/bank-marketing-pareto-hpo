@@ -1,0 +1,49 @@
+{
+  "protocol_version": "latency_calibration_v1",
+  "output_dir": "results/hpo/latency_calibration_v1",
+  "data_path": "data/raw/bank-full.csv",
+  "data_audit_reference": "results/data_audit.json",
+  "split_indices_reference": "results/baseline/split_indices.npz",
+  "cv_folds_reference": "results/hpo/cv_folds_seed42.npz",
+  "pilot_history_reference": "results/hpo/pilot/trial_history.csv",
+  "baseline_reference_dir": "results/baseline",
+  "pilot_reference_dir": "results/hpo/pilot",
+  "seed": 42,
+  "benchmark_batch": {
+    "size": 1000,
+    "deterministic_seed": 20261020,
+    "source": "frozen_training_indices_only",
+    "labels_used": false
+  },
+  "timing": {
+    "sessions": 5,
+    "warmup_calls_per_session": 5,
+    "timed_repeats_per_session": 15,
+    "timer": "perf_counter_ns",
+    "includes": "pipeline_preprocessing_plus_predict_proba",
+    "thread_limit": 1,
+    "estimator_n_jobs": 1,
+    "interleave_seed": 420031,
+    "aggregation": "median_session_medians_per_fold_then_max_across_folds"
+  },
+  "stability_gate": {
+    "maximum_session_median_relative_range": 0.15,
+    "maximum_system_cpu_percent": 80.0,
+    "minimum_process_cpu_efficiency_percent": 60.0,
+    "require_single_batch_hash": true,
+    "full_run_blocked_by_default": true
+  },
+  "constraints": {
+    "historical_latency_cap_ms_per_1000": 35.531700000092314,
+    "model_size_cap_mb": 50.0,
+    "change_cap_automatically": false
+  },
+  "official_study_plan": {
+    "version": "official_latency_v1",
+    "output_subdir": "official_latency_v1",
+    "random_trials": 40,
+    "tpe_trials": 40,
+    "tpe_startup_trials": 10,
+    "full_run_blocked": true
+  }
+}

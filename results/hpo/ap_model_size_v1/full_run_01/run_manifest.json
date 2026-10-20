@@ -1,0 +1,486 @@
+{
+  "protocol_version": "ap_model_size_v1",
+  "protocol_status": "APPROVED_FOR_FULL_RUN_01",
+  "execution_mode": "full",
+  "timestamp_utc": "2026-10-20T16:40:50.606977+00:00",
+  "wall_time_seconds_this_invocation": 1489.1312221999997,
+  "initial_execution_wall_time_seconds": 1489.1312228000006,
+  "protocol_fingerprint": "b28c2f93ad8b6c0469a53d253e8699ac626990edcc27e68ccb65ae33dd1cb56c",
+  "objectives": {
+    "names": [
+      "average_precision_cv_mean",
+      "model_size_max_mb"
+    ],
+    "directions": [
+      "maximize",
+      "minimize"
+    ],
+    "latency_used": false
+  },
+  "dataset_sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+  "dataset_expected_shape": [
+    45211,
+    17
+  ],
+  "split_artifact_sha256": "583acb9dbb4ee92852b1d0a9b584cffb2f7b1fc6409dfdb495a46df4cb3d7d1a",
+  "train_indices_sha256": "b078ac348228f8e49c30af463dc1198fb5e8e11d6379e5d842caf580fc728469",
+  "training_samples": 36168,
+  "holdout_policy": {
+    "holdout_rows_materialized": false,
+    "holdout_labels_read_for_optimization": false,
+    "holdout_metrics_read_or_written": false
+  },
+  "feature_columns": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "balance",
+    "housing",
+    "loan",
+    "contact",
+    "day",
+    "month",
+    "campaign",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "duration_excluded": true,
+  "cv_fold_artifact": {
+    "path": "results/hpo/cv_folds_seed42.npz",
+    "sha256": "149fca7f07d85b8afabde2ed23c1eba22927d16c30b506b3b6ba1902c000b769",
+    "folds": [
+      {
+        "fold": 1,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "7a90c624fd48b53712d8a6ba44f092b0c702cc4da93c18d1fb6e70355e4ac52c",
+        "validation_positions_sha256": "447f0d9fe45d59fc224972c08b38e37e00ddbb97566084caa99c90ed12aa51ff",
+        "fit_original_indices_sha256": "9a2a44f01af37282c4671a659c6d534e4a1360ae4e7d658d3ca4c64ca045469f",
+        "validation_original_indices_sha256": "a07a8372a6293af805d565e6f300c52db0980ef6573329d57cbf6f76562120e0"
+      },
+      {
+        "fold": 2,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "977e2f4db0efc4db3ce3e2549609ca83b0228a5510e6038d0fa0064ec39f2371",
+        "validation_positions_sha256": "0c0f25b924acc7f4dca6e9970a5b17b3c282974d78427a4da03539429edbf75a",
+        "fit_original_indices_sha256": "76858ccc99a6412678e7a786a4162b62503e83e4df99099b6ed054e774b764d4",
+        "validation_original_indices_sha256": "9c282d447a574cfe36bf1bd3610b6d03fbccc7fd70e706a997caebf3d1e16e7a"
+      },
+      {
+        "fold": 3,
+        "fit_samples": 24112,
+        "validation_samples": 12056,
+        "fit_positions_sha256": "881a880bb1c9ad24968a736ca17d42e5e729347529e1ad5a3875f916b321f13e",
+        "validation_positions_sha256": "b0b7a012e1a492e50d1a0794003b29edd2b7977d1fb01d9e961bd4869fad8b7b",
+        "fit_original_indices_sha256": "684d9ad80448f6e0f3ccc173f91df3def9b78a80ce52a48a2851059411a3d7b7",
+        "validation_original_indices_sha256": "591d5aacaa03c97ade6b66278668831c217878460fbfc8ddf1317098a2c4110f"
+      }
+    ]
+  },
+  "serialization": {
+    "format": "joblib",
+    "compression": 3,
+    "artifact_scope": "complete_fitted_preprocess_plus_model_pipeline",
+    "objective_unit": "decimal_MB_bytes_divided_by_1000000",
+    "aggregation": "maximum_across_three_cv_folds",
+    "repeat_check": true
+  },
+  "constraint": {
+    "definition": "g_size = model_size_max_mb - 50.0; feasible iff g_size <= 0",
+    "model_size_cap_mb_decimal": 50.0,
+    "latency_used": false,
+    "completed": 80,
+    "feasible": 80,
+    "infeasible": 0,
+    "failed": 0
+  },
+  "studies": {
+    "random": {
+      "study_name": "bank_rf_ap_model_size_v1_full_run_01_random_seed42",
+      "storage_file": "random_seed42_ap_model_size_v1.db",
+      "attempted_trials": 40,
+      "wall_seconds_this_invocation": 909.7773665000004,
+      "wall_seconds_initial_execution": 909.7773665000004,
+      "trial_runtime_seconds_sum": 907.722333,
+      "resume_no_add_verified": true
+    },
+    "tpe": {
+      "study_name": "bank_rf_ap_model_size_v1_full_run_01_tpe_seed42",
+      "storage_file": "tpe_seed42_ap_model_size_v1.db",
+      "attempted_trials": 40,
+      "wall_seconds_this_invocation": 573.1759680000014,
+      "wall_seconds_initial_execution": 573.1759680000014,
+      "trial_runtime_seconds_sum": 571.027416,
+      "resume_no_add_verified": true
+    }
+  },
+  "pareto": {
+    "total_entries": 13,
+    "distinct_configurations": 13,
+    "duplicate_entries": 0
+  },
+  "selection": {
+    "selection_rule": {
+      "best_ap_tolerance_absolute": 0.005,
+      "eligibility": "completed_feasible_only",
+      "primary_rule": [
+        "highest_feasible_cv_ap",
+        "retain_within_absolute_ap_tolerance",
+        "smallest_model_size_max_bytes"
+      ],
+      "tie_break_order": [
+        "average_precision_cv_mean_desc",
+        "average_precision_cv_std_asc",
+        "config_hash_asc",
+        "sampler_order_random_then_tpe",
+        "trial_number_asc"
+      ],
+      "full_train_size_audit": {
+        "required": true,
+        "cap_mb_decimal": 50.0,
+        "fallback": "next_ranked_distinct_config_within_same_ap_tolerance_set",
+        "do_not_expand_ap_tolerance": true
+      }
+    },
+    "ranked_candidate_count": 18,
+    "audited_candidates": [
+      {
+        "rank": 1,
+        "sampler": "tpe",
+        "trial_number": 35,
+        "config_hash": "4cdd6dd35f1d",
+        "parameters": {
+          "n_estimators": 75,
+          "max_depth": 14,
+          "min_samples_leaf": 11,
+          "max_features": 0.7572250554192393,
+          "class_weight": null
+        },
+        "cv_average_precision_mean": 0.44341749539409525,
+        "cv_average_precision_std": 0.005461665711254037,
+        "cv_model_size_max_bytes": 1034871,
+        "cv_model_size_max_mb": 1.034871,
+        "full_train_fit_seconds": 4.7959166999989975,
+        "full_train_model_size_bytes": 1289340,
+        "full_train_model_size_mb": 1.28934,
+        "full_train_model_size_mib": 1.2296104431152344,
+        "full_train_artifact_sha256": "d63cf98c067067f9dbd421d9569a44b8909a5740ac2b102f1a52f9a36f2175c1",
+        "repeat_serialization_exact": true,
+        "deployment_size_cap_mb_decimal": 50.0,
+        "deployment_feasible": true
+      }
+    ],
+    "selected": {
+      "rank": 1,
+      "sampler": "tpe",
+      "trial_number": 35,
+      "config_hash": "4cdd6dd35f1d",
+      "parameters": {
+        "n_estimators": 75,
+        "max_depth": 14,
+        "min_samples_leaf": 11,
+        "max_features": 0.7572250554192393,
+        "class_weight": null
+      },
+      "cv_average_precision_mean": 0.44341749539409525,
+      "cv_average_precision_std": 0.005461665711254037,
+      "cv_model_size_max_bytes": 1034871,
+      "cv_model_size_max_mb": 1.034871,
+      "full_train_fit_seconds": 4.7959166999989975,
+      "full_train_model_size_bytes": 1289340,
+      "full_train_model_size_mb": 1.28934,
+      "full_train_model_size_mib": 1.2296104431152344,
+      "full_train_artifact_sha256": "d63cf98c067067f9dbd421d9569a44b8909a5740ac2b102f1a52f9a36f2175c1",
+      "repeat_serialization_exact": true,
+      "deployment_size_cap_mb_decimal": 50.0,
+      "deployment_feasible": true
+    },
+    "deployment_feasible": true,
+    "holdout_used": false,
+    "best_feasible_cv_ap": 0.4461861893244469,
+    "ap_eligibility_threshold": 0.4411861893244469,
+    "eligible_distinct_configurations": 18
+  },
+  "figure_manifest": {
+    "source": "trial_history.csv and pareto_unique.csv generated from the same official studies",
+    "generation_module": "src.optimize_ap_model_size",
+    "figures": {
+      "best_feasible_ap_vs_trial.png": {
+        "method": "Running maximum feasible mean CV AP by sampler and attempt.",
+        "sha256": "e4a60887ad0655733971107634680c762e7bd2f7211cbaf0a0b12f306c77a326",
+        "bytes": 56214
+      },
+      "ap_vs_model_size_pareto.png": {
+        "method": "All complete trials with the unique feasible Pareto front overlaid.",
+        "sha256": "f7874f5811f3112fc239acf82c536f6abd025279e483158ef4fef3cf792badb5",
+        "bytes": 91497
+      },
+      "random_vs_tpe_comparison.png": {
+        "method": "Best feasible AP and unique Pareto coverage at 40 attempts; descriptive single-seed comparison.",
+        "sha256": "efdccbffcf5c442791b3a59cbdcc445c5126bdab3f281274ef662f104d061dbb",
+        "bytes": 62095
+      },
+      "trial_size_distribution.png": {
+        "method": "Boxplot of max-fold serialized pipeline size for complete trials by sampler.",
+        "sha256": "9fe8624edf6201e7f22b6a3426cf39368f9a32f516ba47aea622fb103424a5c3",
+        "bytes": 33769
+      },
+      "cumulative_evaluation_cost.png": {
+        "method": "Cumulative Optuna trial duration by sampler and attempt.",
+        "sha256": "96c5afd60acad8df1ba69ec688db0a87009195361da2f1ae2d05f2a20793de0f",
+        "bytes": 70467
+      }
+    }
+  },
+  "preflight": {
+    "status": "PASS",
+    "timestamp_utc": "2026-10-20T16:16:01.964217+00:00",
+    "authorized_scope": "fresh full_run_01 with exactly 40 RandomSampler + 40 TPESampler attempts",
+    "dataset_sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+    "split_artifact_sha256": "583acb9dbb4ee92852b1d0a9b584cffb2f7b1fc6409dfdb495a46df4cb3d7d1a",
+    "train_indices_sha256": "b078ac348228f8e49c30af463dc1198fb5e8e11d6379e5d842caf580fc728469",
+    "cv_fold_artifact_sha256": "149fca7f07d85b8afabde2ed23c1eba22927d16c30b506b3b6ba1902c000b769",
+    "training_samples": 36168,
+    "feature_columns": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "contact",
+      "day",
+      "month",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome"
+    ],
+    "duration_excluded": true,
+    "holdout_rows_materialized": false,
+    "preprocessing_fit_scope": "new pipeline constructed and fit inside every CV training fold",
+    "serialization_scope": "complete fitted preprocess+model Pipeline",
+    "latency_used": false,
+    "historical_config_hash_audit": {
+      "pilot_sqlite_parameters": {
+        "n_estimators": 275,
+        "max_depth": 16,
+        "min_samples_leaf": 9,
+        "max_features": 0.41235069657748147,
+        "class_weight": null
+      },
+      "smoke_sqlite_parameters": {
+        "n_estimators": 275,
+        "max_depth": 16,
+        "min_samples_leaf": 9,
+        "max_features": 0.41235069657748147,
+        "class_weight": null
+      },
+      "raw_sqlite_parameters_equal": true,
+      "direct_canonical_hash": "b4e97ab5ded9",
+      "historical_csv_roundtrip_parameters": {
+        "n_estimators": 275,
+        "max_depth": 16,
+        "min_samples_leaf": 9,
+        "max_features": 0.4123506965774814,
+        "class_weight": null
+      },
+      "historical_csv_roundtrip_hash": "48e74e2e02b3",
+      "max_features_absolute_delta": 5.551115123125783e-17,
+      "explanation": "48e74e2e02b3 was derived after pandas parsed the pilot CSV and rounded max_features from 0.41235069657748147 to 0.4123506965774814. b4e97ab5ded9 hashes the exact Optuna SQLite parameters directly."
+    },
+    "historical_artifact_file_count": 74,
+    "historical_artifact_snapshot_sha256": "a4a38c6319a99b74890f35f5f1a9bbd7eb238b98b67c5af16b3347c6cfa2030e",
+    "official_namespace_was_fresh_or_valid_resume": true,
+    "pytest": "38 passed before gate opening",
+    "compileall": "PASS",
+    "dependency_check": "31 installed packages compatible",
+    "protocol_fingerprint": "b28c2f93ad8b6c0469a53d253e8699ac626990edcc27e68ccb65ae33dd1cb56c"
+  },
+  "integrity": {
+    "old_artifacts_unchanged": true,
+    "files_checked": 74,
+    "snapshot_before_sha256": "a4a38c6319a99b74890f35f5f1a9bbd7eb238b98b67c5af16b3347c6cfa2030e",
+    "snapshot_after_sha256": "a4a38c6319a99b74890f35f5f1a9bbd7eb238b98b67c5af16b3347c6cfa2030e"
+  },
+  "artifacts": {
+    "preflight_report.json": {
+      "sha256": "3768dea05b9a10f818b56cd30cb5d6e4ec3c33d6a03abb28dbb8d0547b1d1dc6",
+      "bytes": 2601
+    },
+    "protocol_snapshot.json": {
+      "sha256": "8c6bb1a72875995dc8fca52f75710471267b5d593c5efe81dcafae5986a25460",
+      "bytes": 7699
+    },
+    "trial_history.csv": {
+      "sha256": "e61474f57f8148a0d656d69aaafb38987112440413b190b84853f76474fe8ce2",
+      "bytes": 84906
+    },
+    "trial_history.json": {
+      "sha256": "ec903ef06c7e89d03f62aeafa630134a92f61dcf3b6e1d5ba88e69b2fe0b8100",
+      "bytes": 158698
+    },
+    "fold_metrics.csv": {
+      "sha256": "ab7c61626903e2be9264c8ee3e9f807931f487256faf41143af741b1ccc5c1e9",
+      "bytes": 202193
+    },
+    "pareto_front.csv": {
+      "sha256": "9062660df416bd5e34e7ff1a1e847580c88ceff9294063b352a07a02f360d7ba",
+      "bytes": 14183
+    },
+    "constraint_summary.json": {
+      "sha256": "30b994d700ec8d503db82b0d208842b69231b48d49280f174e1d816228c080af",
+      "bytes": 224
+    },
+    "acceptance_summary.json": {
+      "sha256": "eb23570da35f59dc7e60efd8ed2320316036cd282ff3c213c97272aec5cb6eb3",
+      "bytes": 1150
+    },
+    "pareto_unique.csv": {
+      "sha256": "a0826bf3dfd7c73ab35c0abf8ae618399ad7c69b02ea83fc4bab6a1701fe957a",
+      "bytes": 15024
+    },
+    "selected_candidate.json": {
+      "sha256": "5827d7ee6d4a0a5bf1055ce437abfa8feb02071b7d956d9d61e6a4d347cc9199",
+      "bytes": 2813
+    },
+    "full_train_size_audit.json": {
+      "sha256": "29aac95e9f8f72b1d988ad5e04474b69a4b13efadb296e79d5fc3bce8e63b416",
+      "bytes": 3180
+    },
+    "figure_manifest.json": {
+      "sha256": "45c2d4ba892a1d6cc289e8c9ed71ddb7c6c046a33293fd4c7a5c5a800e96cf12",
+      "bytes": 1406
+    },
+    "best_feasible_ap_vs_trial.png": {
+      "sha256": "e4a60887ad0655733971107634680c762e7bd2f7211cbaf0a0b12f306c77a326",
+      "bytes": 56214
+    },
+    "ap_vs_model_size_pareto.png": {
+      "sha256": "f7874f5811f3112fc239acf82c536f6abd025279e483158ef4fef3cf792badb5",
+      "bytes": 91497
+    },
+    "random_vs_tpe_comparison.png": {
+      "sha256": "efdccbffcf5c442791b3a59cbdcc445c5126bdab3f281274ef662f104d061dbb",
+      "bytes": 62095
+    },
+    "trial_size_distribution.png": {
+      "sha256": "9fe8624edf6201e7f22b6a3426cf39368f9a32f516ba47aea622fb103424a5c3",
+      "bytes": 33769
+    },
+    "cumulative_evaluation_cost.png": {
+      "sha256": "96c5afd60acad8df1ba69ec688db0a87009195361da2f1ae2d05f2a20793de0f",
+      "bytes": 70467
+    }
+  },
+  "implementation_source_sha256": {
+    "src/optimize_ap_model_size.py": "13d727c228d0dffca5c27dca13b3ba953dcda8f1215b88989c8abaa63bff7c86",
+    "src/pipeline.py": "4ac1b5ff19c2503aadad858c4911231c4c21ac8c5eadc9cc7a8fff6654516aa6",
+    "src/pareto.py": "86b220f28493f2e0ce25f167705039172289a51fa108ce01c3bf7bb566c9ca70",
+    "configs/hpo_ap_model_size_v1.yaml": "1a0c5521cc0c60dcfe18bf5643572faeec0d496448ec260e335e6588e72c5808"
+  },
+  "acceptance": {
+    "protocol_version": "ap_model_size_v1",
+    "scope": "official_full_run_01_40_plus_40",
+    "status": "PASS",
+    "checks": {
+      "exactly_40_attempts_per_sampler": true,
+      "no_trial_failures": true,
+      "three_fold_rows_per_complete_trial": true,
+      "ap_size_constraint_aggregates_correct": true,
+      "pareto_recomputation_exact": true,
+      "pareto_only_completed_feasible": true,
+      "unique_pareto_hashes_unique": true,
+      "latency_excluded": true,
+      "old_artifacts_unchanged": true,
+      "resume_does_not_add_trials_at_budget": true,
+      "ap_latency_runner_still_blocked": true,
+      "full_train_selected_candidate_feasible": true,
+      "holdout_unused": true,
+      "all_required_figures_exist": true
+    },
+    "trial_counts": {
+      "random": {
+        "attempted": 40,
+        "complete": 40,
+        "failed": 0
+      },
+      "tpe": {
+        "attempted": 40,
+        "complete": 40,
+        "failed": 0
+      }
+    },
+    "pareto": {
+      "total_entries": 13,
+      "distinct_configurations": 13,
+      "duplicate_entries": 0
+    },
+    "full_run_status": "COMPLETED_AWAITING_USER_ACCEPTANCE",
+    "holdout_evaluation_performed": false
+  },
+  "full_run": {
+    "status": "COMPLETED_AWAITING_USER_ACCEPTANCE",
+    "configured_trials_per_sampler": 40,
+    "executed": true,
+    "holdout_evaluation_performed": false
+  },
+  "git": {
+    "commit": "3b64a83413475160a26f693369cabdc5e77940f0",
+    "dirty": true
+  },
+  "environment": {
+    "python": "3.11.15",
+    "os": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpu_count": 24,
+    "packages": {
+      "joblib": "1.4.2",
+      "numpy": "1.26.4",
+      "optuna": "4.9.0",
+      "pandas": "2.2.3",
+      "PyYAML": "6.0.2",
+      "scikit-learn": "1.5.2",
+      "scipy": "1.14.1",
+      "SQLAlchemy": "2.1.5",
+      "threadpoolctl": "3.5.0"
+    },
+    "threadpools": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 24,
+        "prefix": "libopenblas",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\numpy.libs\\libopenblas64__v0.3.23-293-gc2f4bdbb-gcc_10_3_0-2bde3a66a51006b2b53eb373ff767a3f.dll",
+        "version": "0.3.23.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Prescott"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 24,
+        "prefix": "vcomp",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 24,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-5b1ec8b915dfb81d11cebc0788069d2d.dll",
+        "version": "0.3.27.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ]
+  }
+}

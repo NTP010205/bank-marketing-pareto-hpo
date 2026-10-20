@@ -1,0 +1,10 @@
+feature,unique_levels,most_frequent,most_frequent_count,unknown_count
+job,12,blue-collar,7830,234
+marital,3,married,21771,0
+education,4,secondary,18561,1482
+default,2,no,35521,0
+housing,2,yes,20182,0
+loan,2,no,30355,0
+contact,3,cellular,23465,10386
+month,12,may,11062,0
+poutcome,4,unknown,29589,29589

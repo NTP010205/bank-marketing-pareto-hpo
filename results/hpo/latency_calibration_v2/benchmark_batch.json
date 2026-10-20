@@ -1,0 +1,10 @@
+{
+  "source": "frozen training indices only",
+  "labels_used": false,
+  "batch_size": 1000,
+  "seed": 20261020,
+  "original_indices_sha256": "71f19d4ef3cb78ab6c087bf9befd61f14fa4fc52c5636ae70da42648a22bb630",
+  "train_positions_sha256": "6d8907cb66dcc54c7cdf756268786cae37087ece51dd0bd08ba51b7a8b4337cc",
+  "holdout_overlap_count": 0,
+  "exact_match_to_v1_batch": true
+}

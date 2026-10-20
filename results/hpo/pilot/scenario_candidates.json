@@ -1,0 +1,23 @@
+{
+  "quality_first": {
+    "sampler": "random",
+    "trial_number": 1,
+    "average_precision_cv_mean": 0.4458863530449377,
+    "latency_per_1000_samples_ms": 26.85139999994135,
+    "model_size_max_mb": 5.952813
+  },
+  "speed_first": {
+    "sampler": "random",
+    "trial_number": 2,
+    "average_precision_cv_mean": 0.41533870440092063,
+    "latency_per_1000_samples_ms": 8.35940000069968,
+    "model_size_max_mb": 0.549682
+  },
+  "balanced_normalized": {
+    "sampler": "tpe",
+    "trial_number": 0,
+    "average_precision_cv_mean": 0.443202496805786,
+    "latency_per_1000_samples_ms": 22.18460000040068,
+    "model_size_max_mb": 4.547198
+  }
+}

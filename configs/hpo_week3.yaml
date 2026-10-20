@@ -1,0 +1,53 @@
+phase: week_3_multi_objective_hpo
+base_config: configs/experiment.yaml
+data_path: data/raw/bank-full.csv
+data_audit_reference: results/data_audit.json
+split_indices_reference: results/baseline/split_indices.npz
+baseline_reference_dir: results/baseline
+output_root: results/hpo
+
+seed: 42
+samplers: [random, tpe]
+directions: [maximize, minimize]
+objective_names: [average_precision_cv_mean, latency_per_1000_samples_ms]
+
+constraint_interpretation:
+  latency_cap_ms_per_1000: 35.531700000092314
+  latency_cap_role: fixed_absolute_deployment_target
+  describe_as_1_5x_calibrated_cv_baseline: false
+  model_size_cap_mb: 50.0
+  approved_option: A
+
+# The exact measurement mechanics are inherited from experiment.yaml.
+# Week 3 measures each validation fold and conservatively uses the maximum
+# fold median/size for the objective and feasibility screen.
+aggregation:
+  latency: max_of_fold_medians
+  model_size: max_of_fold_sizes
+
+pilot:
+  trials_per_sampler: 3
+  maximum_trials_per_sampler: 3
+  storage_subdir: pilot
+
+full:
+  trials_per_sampler: 40
+  storage_subdir: official_latency_v1
+  study_version: official_latency_v1
+  requires_explicit_confirmation: true
+  full_run_blocked: true
+  unblock_requirements:
+    - latency_stability_gate_passed_in_a_future_version
+    - calibration_report_explicitly_accepted_by_user
+    - calibrated_latency_objective_wired_and_verified
+
+tpe:
+  n_startup_trials: 10
+
+execution:
+  optuna_n_jobs: 1
+  estimator_n_jobs: 1
+  keep_trial_models: false
+
+diagnostics:
+  duplicate_latency_relative_range_warning: 0.20

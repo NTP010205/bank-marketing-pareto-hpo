@@ -1,0 +1,30 @@
+.venv/
+.python/
+.uv-cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.idea/
+.vscode/
+.env
+.env.*
+
+# Raw/licensed data must be downloaded separately.
+data/raw/*
+!data/raw/.gitkeep
+
+# Local studies and large serialized artifacts.
+*.db
+*.sqlite
+*.sqlite3
+results/**/*.joblib
+results/**/*.pkl
+results/**/*.pickle
+checkpoints/
+
+# Generated notebook and OS noise.
+.ipynb_checkpoints/
+Thumbs.db
+.DS_Store

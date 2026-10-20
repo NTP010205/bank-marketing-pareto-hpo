@@ -1,0 +1,208 @@
+{
+  "phase": "weeks_1_2_baseline",
+  "data_audit": {
+    "shape": [
+      45211,
+      17
+    ],
+    "columns": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "balance",
+      "housing",
+      "loan",
+      "contact",
+      "day",
+      "month",
+      "duration",
+      "campaign",
+      "pdays",
+      "previous",
+      "poutcome",
+      "y"
+    ],
+    "target_counts": {
+      "no": 39922,
+      "yes": 5289
+    },
+    "target_proportions": {
+      "no": 0.8830151954170445,
+      "yes": 0.11698480458295547
+    },
+    "missing_total": 0,
+    "missing_by_column": {
+      "age": 0,
+      "job": 0,
+      "marital": 0,
+      "education": 0,
+      "default": 0,
+      "balance": 0,
+      "housing": 0,
+      "loan": 0,
+      "contact": 0,
+      "day": 0,
+      "month": 0,
+      "duration": 0,
+      "campaign": 0,
+      "pdays": 0,
+      "previous": 0,
+      "poutcome": 0,
+      "y": 0
+    },
+    "unknown_total": 52124,
+    "unknown_by_column": {
+      "job": 288,
+      "marital": 0,
+      "education": 1857,
+      "default": 0,
+      "housing": 0,
+      "loan": 0,
+      "contact": 13020,
+      "month": 0,
+      "poutcome": 36959,
+      "y": 0
+    },
+    "duplicate_rows": 0,
+    "excluded_from_features": [
+      "duration"
+    ],
+    "file": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\data\\raw\\bank-full.csv",
+    "sha256": "d1513ec63b385506f7cfce9f2c5caa9fe99e7ba4e8c3fa264b3aaf0f849ed32d",
+    "file_size_bytes": 4610348
+  },
+  "feature_policy": {
+    "target": "y",
+    "duration_removed_before_split": true,
+    "feature_count": 15,
+    "numeric_columns": [
+      "age",
+      "balance",
+      "day",
+      "campaign",
+      "pdays",
+      "previous"
+    ],
+    "categorical_columns": [
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "month",
+      "poutcome"
+    ]
+  },
+  "split": {
+    "test_fraction": 0.2,
+    "random_state": 42,
+    "stratified": true,
+    "train_samples": 36168,
+    "test_samples": 9043,
+    "train_index_sha256": "b078ac348228f8e49c30af463dc1198fb5e8e11d6379e5d842caf580fc728469",
+    "test_index_sha256": "c1c3c7f5f45b5ba6159c45650c2f59b8270c4314b3e403e8a549f9047d292055",
+    "indices_artifact": "split_indices.npz",
+    "indices_artifact_sha256": "583acb9dbb4ee92852b1d0a9b584cffb2f7b1fc6409dfdb495a46df4cb3d7d1a",
+    "test_access_policy": "Held untouched during CV; evaluated once after the fixed baseline was fit.",
+    "train_class_counts": {
+      "0": 31937,
+      "1": 4231
+    },
+    "test_class_counts": {
+      "0": 7985,
+      "1": 1058
+    }
+  },
+  "cross_validation": {
+    "folds": 3,
+    "type": "StratifiedKFold",
+    "shuffle": true,
+    "preprocessing_fit_inside_each_fold": true
+  },
+  "baseline": {
+    "estimator": "RandomForestClassifier",
+    "n_estimators": 100,
+    "random_state": 42,
+    "n_jobs": 1,
+    "threshold": 0.5,
+    "primary_metric": "average_precision"
+  },
+  "timings_seconds": {
+    "cross_validation_total": 5.196284900000137,
+    "final_train_fit": 2.4835547000002407,
+    "fold_fit": [
+      {
+        "fold": 1,
+        "fit_seconds": 1.5725784999999632
+      },
+      {
+        "fold": 2,
+        "fit_seconds": 1.6019123999999465
+      },
+      {
+        "fold": 3,
+        "fit_seconds": 1.5645255999997971
+      }
+    ]
+  },
+  "model_artifact": {
+    "path": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\results\\baseline\\model.joblib",
+    "serialization": "joblib",
+    "compression": 3,
+    "file_size_bytes": 14008766,
+    "file_size_mb": 14.008766,
+    "file_size_mib": 13.359800338745117,
+    "sha256": "c4d13a503af34d552e5c4a4c9bbba27b23908563b41e027b2b4014dade1dcd19",
+    "note": "Serialized compressed file size; this is not in-memory RAM usage."
+  },
+  "environment": {
+    "timestamp_utc": "2026-10-20T04:00:58.896760+00:00",
+    "python": "3.11.15 (main, Jun  2 2026, 22:29:49) [MSC v.1944 64 bit (AMD64)]",
+    "executable": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 183 Stepping 1, GenuineIntel",
+    "logical_cpu_count": 24,
+    "versions": {
+      "numpy": "1.26.4",
+      "pandas": "2.2.3",
+      "scikit_learn": "1.5.2",
+      "scipy": "1.14.1",
+      "joblib": "1.4.2"
+    },
+    "threadpools_detected": [
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 24,
+        "prefix": "libopenblas",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\numpy.libs\\libopenblas64__v0.3.23-293-gc2f4bdbb-gcc_10_3_0-2bde3a66a51006b2b53eb373ff767a3f.dll",
+        "version": "0.3.23.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Prescott"
+      },
+      {
+        "user_api": "openmp",
+        "internal_api": "openmp",
+        "num_threads": 24,
+        "prefix": "vcomp",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\sklearn\\.libs\\vcomp140.dll",
+        "version": null
+      },
+      {
+        "user_api": "blas",
+        "internal_api": "openblas",
+        "num_threads": 24,
+        "prefix": "libscipy_openblas",
+        "filepath": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\.venv\\Lib\\site-packages\\scipy.libs\\libscipy_openblas-5b1ec8b915dfb81d11cebc0788069d2d.dll",
+        "version": "0.3.27.dev",
+        "threading_layer": "pthreads",
+        "architecture": "Haswell"
+      }
+    ]
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "project": {
+    "name": "bank-marketing-pareto-hpo",
+    "phase": "weeks_1_2_baseline"
+  },
+  "data": {
+    "path": "data/raw/bank-full.csv",
+    "separator": ";",
+    "expected_shape": [
+      45211,
+      17
+    ],
+    "target": "y",
+    "excluded_features": [
+      "duration"
+    ]
+  },
+  "split": {
+    "test_fraction": 0.2,
+    "random_state": 42,
+    "stratify": true,
+    "cv_folds": 3,
+    "cv_shuffle": true
+  },
+  "baseline": {
+    "estimator": "RandomForestClassifier",
+    "n_estimators": 100,
+    "random_state": 42,
+    "n_jobs": 1,
+    "threshold": 0.5,
+    "primary_metric": "average_precision"
+  },
+  "latency": {
+    "batch_size": 1000,
+    "warmup_runs": 2,
+    "repeats": 7,
+    "thread_limit": 1
+  },
+  "artifact": {
+    "serialization": "joblib",
+    "compression": 3
+  },
+  "optimization": {
+    "status": "TODO_week_3_after_baseline_passes",
+    "objectives": {
+      "direction": "minimize",
+      "values": [
+        "-average_precision_cv",
+        "latency_per_1000_samples"
+      ]
+    },
+    "constraints": {
+      "model_size_mb_max": 50,
+      "latency_multiplier_of_measured_baseline_max": 1.5,
+      "infeasible_policy": "log_and_do_not_relax"
+    },
+    "search_space": {
+      "n_estimators": {
+        "type": "int",
+        "low": 50,
+        "high": 300,
+        "step": 25
+      },
+      "max_depth": {
+        "type": "int",
+        "low": 4,
+        "high": 24
+      },
+      "min_samples_leaf": {
+        "type": "int",
+        "low": 1,
+        "high": 12
+      },
+      "max_features": {
+        "type": "float",
+        "low": 0.4,
+        "high": 1.0
+      },
+      "class_weight": {
+        "type": "categorical",
+        "choices": [
+          null,
+          "balanced",
+          "balanced_subsample"
+        ]
+      }
+    },
+    "methods": {
+      "random_search_trials": 40,
+      "tpe_trials": 40,
+      "same_domain_and_folds": true
+    }
+  }
+}

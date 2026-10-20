@@ -1,0 +1,24 @@
+{
+  "includes": "pipeline preprocessing + predict_proba",
+  "requested_batch_size": 1000,
+  "measured_batch_size": 1000,
+  "warmup_runs": 2,
+  "repeats": 7,
+  "thread_limit": 1,
+  "raw_repeat_ms": [
+    23.798700000043027,
+    23.881300000084593,
+    22.8383999997277,
+    24.999700000080338,
+    23.687800000061543,
+    23.155299999871204,
+    22.12169999984326
+  ],
+  "latency_per_1000_samples_ms": {
+    "median": 23.687800000061543,
+    "std": 0.9106025549397608,
+    "iqr": 0.8431500002643588,
+    "min": 22.12169999984326,
+    "max": 24.999700000080338
+  }
+}

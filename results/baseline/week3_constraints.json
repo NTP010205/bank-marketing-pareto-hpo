@@ -1,0 +1,9 @@
+{
+  "status": "registered_not_executed",
+  "model_size_mb_max": 50.0,
+  "baseline_model_size_mb": 14.008766,
+  "baseline_measured_latency_per_1000_samples_ms": 23.687800000061543,
+  "latency_multiplier_max": 1.5,
+  "derived_latency_per_1000_samples_ms_max": 35.531700000092314,
+  "infeasible_policy": "log_and_do_not_relax"
+}

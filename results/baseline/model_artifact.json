@@ -1,0 +1,10 @@
+{
+  "path": "D:\\Thực hành\\NMTUH\\project\\bank-marketing-pareto-hpo\\results\\baseline\\model.joblib",
+  "serialization": "joblib",
+  "compression": 3,
+  "file_size_bytes": 14008766,
+  "file_size_mb": 14.008766,
+  "file_size_mib": 13.359800338745117,
+  "sha256": "c4d13a503af34d552e5c4a4c9bbba27b23908563b41e027b2b4014dade1dcd19",
+  "note": "Serialized compressed file size; this is not in-memory RAM usage."
+}
